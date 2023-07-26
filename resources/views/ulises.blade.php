@@ -8,6 +8,6 @@
 </head>
 <body>
     <h1>TEXTO PRINCIPAL</h1>
-    <h2>hola prueba</h2>
+    <h2>hola pruebaa</h2>
 </body>
 </html>
