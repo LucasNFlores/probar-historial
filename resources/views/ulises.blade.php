@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>TEXTO PRINCIPALl</h1>
+    <h1>TEXTO PRINCIPAL</h1>
+    <h2>hola prueba</h2>
 </body>
 </html>
