@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Create</title>
 </head>
 <body>
-    <h1>TEXTO PRINCIPAL</h1>
-    <h2>hola prueba</h2>
+
+    <form action="{{route('store')}}" method="POST">
+
+        @csrf
+
+        <label for="primerNombre">Nombre:<input name="name" type=""></label>
+
+        <input  type="submit">
+
+    </form>
+
 </body>
 </html>
