@@ -15,7 +15,7 @@ class ApiaryController extends Controller
         $apiaries = Apiary::all();
         return view('index', [
             'apiaries' => $apiaries
-        ]);
+        ]); #Array asociativo
     }
 
     /**
@@ -51,7 +51,10 @@ class ApiaryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $apiary = Apiary::find($id);
+
+       return view ('edit', compact('apiary')); #Genera de forma automatica lo que hace el array asociativo
+
     }
 
     /**
@@ -60,6 +63,10 @@ class ApiaryController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $apiary = Apiary::find($id);
+        $apiary -> name = $request -> name;
+        $apiary->save();
+        return redirect()->route('index');
     }
 
     /**
@@ -68,5 +75,8 @@ class ApiaryController extends Controller
     public function destroy(string $id)
     {
         //
+        $apiary = Apiary::find($id);
+        $apiary -> delete();
+        return redirect() -> route('index');
     }
 }
