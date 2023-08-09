@@ -4,7 +4,7 @@
 
     @section('content')
 
-    <form action="{{route('update', $devices)}}" method="POST">
+    <form action="{{route('update', $device)}}" method="POST">
 
         @csrf
         @method('PUT')
@@ -14,7 +14,7 @@
         <input name="functionality" type="" value="{{$device -> functionality}}">
         <input name="state" type="" value="{{$device -> state}}">
 
-        <input  type="submit"  >
+        <input  type="submit" value="update" >
 
     </form>
 

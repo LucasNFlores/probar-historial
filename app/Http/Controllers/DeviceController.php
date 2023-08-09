@@ -54,11 +54,11 @@ class DeviceController extends Controller
 
     public function update(Request $request, int $id)
     {
-        $request -> name;
+
         $device = Device::find($id);
         $device -> name = $request -> name;
         $device -> functionality = $request -> functionality;
-        $device -> state = $request -> name;
+        $device -> state = $request -> state;
 
         $device->save();
         return redirect()->route('devices.index');
