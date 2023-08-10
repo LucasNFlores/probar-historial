@@ -8,21 +8,18 @@
                 <tr>
                     <th scope="col" class="px-6 py-3 text-center">Id</th>
                     <th scope="col" class="px-6 py-3 text-center">Name </th>
-                    <th scope="col" class="px-6 py-3 text-center">Functionality </th>
-                    <th scope="col" class="px-6 py-3 text-center">State</th>
-
+                    <th scope="col" class="px-6 py-3 text-center">measure </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($devices as $device)
+                @foreach ($variables as $variable)
                 <tr>
-                    <th scope="row" class="text-center">{{ $device->id }}</th>
-                    <td class="text-center">{{$device->name}}</td>
-                    <td class="text-center">{{$device->functionality}}</td>
-                    <td class="text-center">{{$device->state}}</td>
-                    <td class="text-center"><a href="{{route('edit', $device->id)}}">Edit</a>
+                    <th scope="row" class="text-center">{{ $variable->id }}</th>
+                    <td class="text-center">{{$variable->name}}</td>
+                    <td class="text-center">{{$variable->measure}}</td>
+                    <td class="text-center"><a href="{{route('edit', $variable->id)}}">Edit</a>
 
-                    <form action="{{route('destroy', $device->id)}}" method="POST">
+                    <form action="{{route('destroy', $variable->id)}}" method="POST">
 
                         @csrf
                         @method('DELETE')
@@ -35,5 +32,5 @@
             </tbody>
         </table>
     </div>
-    <a href="{{route('createdevice')}}">new</a>
+    <a href="{{route('create')}}">new</a>
     @endsection
