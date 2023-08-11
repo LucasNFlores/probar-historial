@@ -19,9 +19,9 @@
                     <tr>
                         <th scope="row" class="text-center">{{ $apiary->id }}</th>
                         <td class="text-center">{{$apiary->name}}</td>
-                        <td class="text-center"><a href="{{route('edit', $apiary->id)}}">EDIT</a>
+                        <td class="text-center"><a href="{{route('hives.edit', $apiary->id)}}">EDIT</a>
 
-                        <form action="{{route('destroy', $apiary->id)}}" method="POST">
+                        <form action="{{route('hives.destroy', $apiary->id)}}" method="POST">
 
                             @csrf
                             @method('DELETE')
@@ -34,6 +34,6 @@
                 </tbody>
             </table>
         </div>
-        <a href="{{route('created')}}">NUEVO</a>
+        <a href="{{route('hives.create')}}">NUEVO</a>
 
     @endsection

@@ -11,19 +11,19 @@ Route::get('/', function () {
 });
 
 //Apiarios
-Route::get('/apiarios', [ApiaryController::class, 'index']) -> name('index'); #cambiar nombre de rutas SOLO NOMBRES
+Route::get('/apiarios', [ApiaryController::class, 'index']) -> name('hives.index'); #cambiar nombre de rutas SOLO NOMBRES
 
-Route::get('/apiarios/nuevo', [ApiaryController::class, 'create']) -> name('created');
+Route::get('/apiarios/nuevo', [ApiaryController::class, 'create']) -> name('hives.create');
 
-Route::post('/apiarios', [ApiaryController::class, 'store']) -> name('store');
+Route::post('/apiarios', [ApiaryController::class, 'store']) -> name('hives.store');
 
-Route::get('/apiarios/{apiario}/edit', [ApiaryController::class, 'edit']) -> name('edit');
+Route::get('/apiarios/{apiario}/edit', [ApiaryController::class, 'edit']) -> name('hives.edit');
 
-Route::put('/apiarios/{apiario}', [ApiaryController::class, 'update']) -> name('update');
+Route::put('/apiarios/{apiario}', [ApiaryController::class, 'update']) -> name('hives.update');
 
-Route::delete('/apiarios/{apiario}', [ApiaryController::class, 'destroy']) -> name('destroy');
+Route::delete('/apiarios/{apiario}', [ApiaryController::class, 'destroy']) -> name('hives.destroy');
 
-
+ 
 
 //Dispositivos
 

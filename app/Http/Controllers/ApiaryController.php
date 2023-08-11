@@ -12,7 +12,7 @@ class ApiaryController extends Controller
     public function index()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
     {
         $apiaries = Apiary::all();
-        return view('apiaries.index', [
+        return view('hives.index', [
             'apiaries' => $apiaries
         ]); #Array asociativo
     }
@@ -22,7 +22,7 @@ class ApiaryController extends Controller
      */
     public function create()
     {
-        return view('apiaries.create');
+        return view('hives.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class ApiaryController extends Controller
         $apiary = new Apiary();
         $apiary->name=$request['name'];
         $apiary -> save();
-        return redirect()->route('index');
+        return redirect()->route('hives.index');
     }
 
     /**
@@ -52,7 +52,7 @@ class ApiaryController extends Controller
     {
         $apiary = Apiary::find($id);
 
-       return view ('edit', compact('apiary')); #Genera de forma automatica lo que hace el array asociativo
+       return view ('hives.edit', compact('apiary')); #Genera de forma automatica lo que hace el array asociativo
 
     }
 
@@ -65,7 +65,7 @@ class ApiaryController extends Controller
         $apiary = Apiary::find($id);
         $apiary -> name = $request -> name;
         $apiary->save();
-        return redirect()->route('index');
+        return redirect()->route('hives.index');
     }
 
     /**
@@ -76,6 +76,6 @@ class ApiaryController extends Controller
         //
         $apiary = Apiary::find($id);
         $apiary -> delete();
-        return redirect() -> route('index');
+        return redirect() -> route('hives.index');
     }
 }

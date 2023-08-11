@@ -4,7 +4,7 @@
 
     @section('content')
 
-    <form action="{{route('apiaries.store')}}" method="POST">
+    <form action="{{route('hives.store')}}" method="POST">
 
         @csrf
 

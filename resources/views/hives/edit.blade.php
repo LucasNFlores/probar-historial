@@ -4,7 +4,7 @@
 
     @section('content')
 
-    <form action="{{route('update', $apiary)}}" method="POST">
+    <form action="{{route('hives.update', $apiary)}}" method="POST">
 
         @csrf
         @method('PUT')
