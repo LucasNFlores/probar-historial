@@ -34,6 +34,6 @@
                 </tbody>
             </table>
         </div>
-        <a href="{{route('create')}}">NUEVO</a>
+        <a href="{{route('created')}}">NUEVO</a>
 
     @endsection

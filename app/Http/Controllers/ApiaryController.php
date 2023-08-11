@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Apiary;
 
@@ -10,10 +9,10 @@ class ApiaryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
     {
         $apiaries = Apiary::all();
-        return view('index', [
+        return view('apiaries.index', [
             'apiaries' => $apiaries
         ]); #Array asociativo
     }
@@ -23,7 +22,7 @@ class ApiaryController extends Controller
      */
     public function create()
     {
-        return view('create');
+        return view('apiaries.create');
     }
 
     /**
