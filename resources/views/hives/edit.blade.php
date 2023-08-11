@@ -4,13 +4,13 @@
 
     @section('content')
 
-    <form action="{{route('hives.update', $apiary)}}" method="POST">
+    <form action="{{route('hives.update', $hive)}}" method="POST">
 
         @csrf
         @method('PUT')
 
         <label for="primerNombre">Nombre:</label>
-        <input name="name" type="" value="{{$apiary -> name}}">
+        <input name="name" type="" value="{{$hive -> name}}">
 
         <input  type="submit" value="Update">
 

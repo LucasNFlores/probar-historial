@@ -1,27 +1,25 @@
 <?php
  
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApiaryController;
 use App\Http\Controllers\DeviceController;
-
-
+use App\Http\Controllers\HivesController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//Apiarios
-Route::get('/apiarios', [ApiaryController::class, 'index']) -> name('hives.index'); #cambiar nombre de rutas SOLO NOMBRES
+//Colmenas
+Route::get('/colmenas', [HivesController::class, 'index']) -> name('hives.index'); #cambiar nombre de rutas SOLO NOMBRES
 
-Route::get('/apiarios/nuevo', [ApiaryController::class, 'create']) -> name('hives.create');
+Route::get('/colmenas/new', [HivesController::class, 'create']) -> name('hives.create');
 
-Route::post('/apiarios', [ApiaryController::class, 'store']) -> name('hives.store');
+Route::post('/colmenas', [HivesController::class, 'store']) -> name('hives.store');
 
-Route::get('/apiarios/{apiario}/edit', [ApiaryController::class, 'edit']) -> name('hives.edit');
+Route::get('/colmenas/{hive}/edit', [HivesController::class, 'edit']) -> name('hives.edit');
 
-Route::put('/apiarios/{apiario}', [ApiaryController::class, 'update']) -> name('hives.update');
+Route::put('/colmenas/{hive}', [HivesController::class, 'update']) -> name('hives.update');
 
-Route::delete('/apiarios/{apiario}', [ApiaryController::class, 'destroy']) -> name('hives.destroy');
+Route::delete('/colmenas/{hive}', [HivesController::class, 'destroy']) -> name('hives.destroy');
 
  
 

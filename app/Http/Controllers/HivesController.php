@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\Apiary;
+use App\Models\Hive;
 
-class ApiaryController extends Controller
+class HivesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
     {
-        $apiaries = Apiary::all();
+        $hives = Hive::all();
         return view('hives.index', [
-            'apiaries' => $apiaries
+            'hives' => $hives
         ]); #Array asociativo
     }
 
@@ -31,9 +31,9 @@ class ApiaryController extends Controller
     public function store(Request $request)
     {
         $request -> name;
-        $apiary = new Apiary();
-        $apiary->name=$request['name'];
-        $apiary -> save();
+        $hive = new Hive();
+        $hive->name=$request['name'];
+        $hive -> save();
         return redirect()->route('hives.index');
     }
 
@@ -50,9 +50,9 @@ class ApiaryController extends Controller
      */
     public function edit(string $id)
     {
-        $apiary = Apiary::find($id);
+        $hive = Hive::find($id);
 
-       return view ('hives.edit', compact('apiary')); #Genera de forma automatica lo que hace el array asociativo
+       return view ('hives.edit', compact('hive')); #Genera de forma automatica lo que hace el array asociativo
 
     }
 
@@ -62,9 +62,9 @@ class ApiaryController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $apiary = Apiary::find($id);
-        $apiary -> name = $request -> name;
-        $apiary->save();
+        $hive = Hive::find($id);
+        $hive -> name = $request -> name;
+        $hive->save();
         return redirect()->route('hives.index');
     }
 
@@ -74,8 +74,8 @@ class ApiaryController extends Controller
     public function destroy(string $id)
     {
         //
-        $apiary = Apiary::find($id);
-        $apiary -> delete();
+        $hive = Hive::find($id);
+        $hive -> delete();
         return redirect() -> route('hives.index');
     }
 }

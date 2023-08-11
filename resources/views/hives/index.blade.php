@@ -15,13 +15,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($apiaries as $apiary)
+                    @foreach ($hives as $hive)
                     <tr>
-                        <th scope="row" class="text-center">{{ $apiary->id }}</th>
-                        <td class="text-center">{{$apiary->name}}</td>
-                        <td class="text-center"><a href="{{route('hives.edit', $apiary->id)}}">EDIT</a>
+                        <th scope="row" class="text-center">{{ $hive->id }}</th>
+                        <td class="text-center">{{$hive->name}}</td>
+                        <td class="text-center"><a href="{{route('hives.edit', $hive->id)}}">EDIT</a>
 
-                        <form action="{{route('hives.destroy', $apiary->id)}}" method="POST">
+                        <form action="{{route('hives.destroy', $hive->id)}}" method="POST">
 
                             @csrf
                             @method('DELETE')
