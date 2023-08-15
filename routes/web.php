@@ -8,6 +8,10 @@ use App\Http\Controllers\VariableController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+});
 //Apiarios
 Route::get('/apiarios', [ApiaryController::class, 'index']) -> name('index');
 
