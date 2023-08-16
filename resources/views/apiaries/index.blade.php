@@ -19,13 +19,13 @@
                     <tr>
                         <th scope="row" class="text-center">{{ $apiary->id }}</th>
                         <td class="text-center">{{$apiary->name}}</td>
-                        <td class="text-center"><a href="{{route('edit', $apiary->id)}}">EDIT</a>
+                        <td class="text-center"><a href="{{route('apiaries.edit', $apiary->id)}}">EDIT</a>
 
-                        <form action="{{route('destroy', $apiary->id)}}" method="POST">
+                        <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
 
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="DEL" onclick="return confirm('El dato se va a eliminar')">
+                            <input type="submit" value="DEL" onclick="return confirm('¿Desea eliminar el dato seleccionado?')">
 
 
                         </form>
@@ -34,6 +34,6 @@
                 </tbody>
             </table>
         </div>
-        <a href="{{route('createvariable')}}">NUEVO</a>
+        <a href="{{route('apiaries.create')}}">NUEVO</a>
 
     @endsection

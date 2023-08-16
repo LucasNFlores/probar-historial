@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiaryController;
+use App\Http\Controllers\HivesController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
 
@@ -12,23 +13,38 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+
 //Apiarios
-Route::get('/apiarios', [ApiaryController::class, 'index']) -> name('index');
+Route::get('/apiaries', [ApiaryController::class, 'index']) -> name('apiaries.index');
 
-Route::get('/apiarios/nuevo', [ApiaryController::class, 'create']) -> name('create');
+Route::get('/apiaries/new', [ApiaryController::class, 'create']) -> name('apiaries.create');
 
-Route::post('/apiarios', [ApiaryController::class, 'store']) -> name('store');
+Route::post('/apiaries', [ApiaryController::class, 'store']) -> name('apiaries.store');
 
-Route::get('/apiarios/{apiario}/edit', [ApiaryController::class, 'edit']) -> name('edit');
+Route::get('/apiaries/{apiary}/edit', [ApiaryController::class, 'edit']) -> name('apiaries.edit');
 
-Route::put('/apiarios/{apiario}', [ApiaryController::class, 'update']) -> name('update');
+Route::put('/apiaries/{apiary}', [ApiaryController::class, 'update']) -> name('apiaries.update');
 
-Route::delete('/apiarios/{apiario}', [ApiaryController::class, 'destroy']) -> name('destroy');
+Route::delete('/apiaries/{apiary}', [ApiaryController::class, 'destroy']) -> name('apiaries.destroy');
+
+
+//Colmenas
+Route::get('/hives', [HivesController::class, 'index']) -> name('hives.index');
+
+Route::get('/hives/new', [HivesController::class, 'create']) -> name('hives.create');
+
+Route::post('/hives', [HivesController::class, 'store']) -> name('hives.store');
+
+Route::get('/hives/{hive}/edit', [HivesController::class, 'edit']) -> name('hives.edit');
+
+Route::put('/hives/{hive}', [HivesController::class, 'update']) -> name('hives.update');
+
+Route::delete('/hives/{hive}', [HivesController::class, 'destroy']) -> name('hives.destroy');
 
 
 
 //Dispositivos
-
 Route::get('/devices', [DeviceController::class, 'index']) -> name('devices.index');
 
 Route::get('/devices/nuevo', [DeviceController::class, 'create']) -> name('createdevice');
