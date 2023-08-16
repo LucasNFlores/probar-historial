@@ -1,20 +1,20 @@
 <?php
 
+
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-use App\Models\Apiary;
+use App\Models\Hive;
 
-class ApiaryController extends Controller
+class HivesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
     {
-        $apiaries = Apiary::all();
-        return view('apiaries.index', [
-            'apiaries' => $apiaries
+        $hives = Hive::all();
+        return view('hives.index', [
+            'hives' => $hives
         ]); #Array asociativo
     }
 
@@ -23,7 +23,7 @@ class ApiaryController extends Controller
      */
     public function create()
     {
-        return view('apiaries.create');
+        return view('hives.create');
     }
 
     /**
@@ -32,10 +32,10 @@ class ApiaryController extends Controller
     public function store(Request $request)
     {
         $request -> name;
-        $apiary = new Apiary();
-        $apiary->name=$request['name'];
-        $apiary -> save();
-        return redirect()->route('apiaries.index');
+        $hive = new Hive();
+        $hive->name=$request['name'];
+        $hive -> save();
+        return redirect()->route('hives.index');
     }
 
     /**
@@ -51,9 +51,9 @@ class ApiaryController extends Controller
      */
     public function edit(string $id)
     {
-        $apiary = Apiary::find($id);
+        $hive = Hive::find($id);
 
-       return view ('apiaries.edit', compact('apiary')); #Genera de forma automatica lo que hace el array asociativo
+       return view ('hives.edit', compact('hive')); #Genera de forma automatica lo que hace el array asociativo
 
     }
 
@@ -63,10 +63,10 @@ class ApiaryController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $apiary = Apiary::find($id);
-        $apiary -> name = $request -> name;
-        $apiary->save();
-        return redirect()->route('apiaries.index');
+        $hive = Hive::find($id);
+        $hive -> name = $request -> name;
+        $hive->save();
+        return redirect()->route('hives.index');
     }
 
     /**
@@ -75,8 +75,8 @@ class ApiaryController extends Controller
     public function destroy(string $id)
     {
         //
-        $apiary = Apiary::find($id);
-        $apiary -> delete();
-        return redirect() -> route('apiaries.index');
+        $hive = Hive::find($id);
+        $hive -> delete();
+        return redirect() -> route('hives.index');
     }
 }
