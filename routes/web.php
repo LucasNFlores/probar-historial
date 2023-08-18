@@ -10,12 +10,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/template', function () {
+    return view('template');
+});
+Route::get('/template2', function () {
+    return view('template2');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
 
-//Apiarios
+
 Route::get('/apiaries', [ApiaryController::class, 'index']) -> name('apiaries.index');
 
 Route::get('/apiaries/new', [ApiaryController::class, 'create']) -> name('apiaries.create');
