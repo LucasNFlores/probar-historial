@@ -1,7 +1,11 @@
-@extends('template')
 
-    @section('title', 'Index')
-    @section('content')
+<body>
+
+    @include('base._navbar')
 
 
-    @endsection
+
+
+</body>
+</html>
+

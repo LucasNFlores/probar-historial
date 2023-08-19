@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 
 
 
+//Apiarios
 Route::get('/apiaries', [ApiaryController::class, 'index']) -> name('apiaries.index');
 
 Route::get('/apiaries/new', [ApiaryController::class, 'create']) -> name('apiaries.create');
