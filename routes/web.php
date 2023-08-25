@@ -8,7 +8,7 @@ use App\Http\Controllers\VariableController;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+}) -> name('dashboard');
 
 Route::get('/template', function () {
     return view('template');

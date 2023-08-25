@@ -2,7 +2,7 @@
     <div class="flex flex-wrap items-center">
 
         <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
-            <a href="#" aria-label="Home">
+            <a href="{{route('dashboard')}}" aria-label="Home">
                 <img src="{{ asset('favicon.ico') }}" alt="Icon" class="icon-size">
             </a>
         </div>

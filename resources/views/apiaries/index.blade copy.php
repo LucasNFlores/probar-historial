@@ -16,20 +16,20 @@
                 </thead>
                 <tbody>
                     @foreach ($apiaries as $apiary)
-                    <tr>
-                        <th scope="row" class="text-center">{{ $apiary->id }}</th>
-                        <td class="text-center">{{$apiary->name}}</td>
-                        <td class="text-center"><a href="{{route('apiaries.edit', $apiary->id)}}">EDIT</a>
+                        <tr>
+                            <th scope="row" class="text-center">{{ $apiary->id }}</th>
+                            <td class="text-center">{{$apiary->name}}</td>
+                            <td class="text-center"><a href="{{route('apiaries.edit', $apiary->id)}}">EDIT</a>
 
-                        <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
+                            <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
 
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="DEL" onclick="return confirm('¿Desea eliminar el dato seleccionado?')">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" value="DEL" onclick="return confirm('¿Desea eliminar el dato seleccionado?')">
 
 
-                        </form>
-                    </tr>
+                            </form>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
