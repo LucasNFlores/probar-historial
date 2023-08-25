@@ -1,5 +1,5 @@
 <div>
-    <div class="card">
+    <!--<div class="card">-->
         <img class="w-full h-full object-cover"
             src="/images/colmena.png" alt="colmena"/>
 
@@ -38,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!--</div>-->
 </div>

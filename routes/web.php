@@ -7,7 +7,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/template', function () {
@@ -18,9 +18,7 @@ Route::get('/template2', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
 
 
 

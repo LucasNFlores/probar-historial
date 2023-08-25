@@ -3,37 +3,46 @@
     @section('title', 'Index')
     @section('content')
 
+    <div class="  p-6">
+        <!--Table Card-->
+        <div class="bg-white border-transparent rounded-lg shadow-xl">
+            <div
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                <h2 class="font-bold uppercase text-gray-600">Listado</h2>
+            </div>
+            <div class="p-5">
+                <table class="w-full p-5 text-gray-700">
+                    <thead>
+                        <tr>
+                            <th class="text-left text-blue-900">Name</th>
+                            <th class="text-left text-blue-900">Side</th>
+                            <th class="text-left text-blue-900">Role</th>
+                        </tr>
+                    </thead>
 
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg border-t- border">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                    <tr>
-                        <th scope="col" class="px-6 py-3 text-center">Id</th>
-                        <th scope="col" class="px-6 py-3 text-center">Name</th>
-                        <th scope="col" class="px-6 py-3 text-center">Action</th>
+                    <tbody>
+                        <tr>
+                            <td>Obi Wan Kenobi</td>
+                            <td>Light</td>
+                            <td>Jedi</td>
+                        </tr>
+                        <tr>
+                            <td>Greedo</td>
+                            <td>South</td>
+                            <td>Scumbag</td>
+                        </tr>
+                        <tr>
+                            <td>Darth Vader</td>
+                            <td>Dark</td>
+                            <td>Sith</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($apiaries as $apiary)
-                    <tr>
-                        <th scope="row" class="text-center">{{ $apiary->id }}</th>
-                        <td class="text-center">{{$apiary->name}}</td>
-                        <td class="text-center"><a href="{{route('apiaries.edit', $apiary->id)}}">EDIT</a>
+                <p class="py-2"><a href="#">See More issues...</a></p>
 
-                        <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
-
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="DEL" onclick="return confirm('¿Desea eliminar el dato seleccionado?')">
-
-
-                        </form>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            </div>
         </div>
-        <a href="{{route('apiaries.create')}}">NUEVO</a>
+        <!--/table Card-->
 
     @endsection
