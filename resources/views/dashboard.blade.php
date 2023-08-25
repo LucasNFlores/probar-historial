@@ -1,5 +1,5 @@
 @extends('template')
-
+@section('title', 'Tablero')
 @section('content')
 <div class="flex flex-wrap">
     <!--Estadisticas tarjetas-->

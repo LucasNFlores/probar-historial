@@ -12,7 +12,7 @@
         <label for="primerNombre">Nombre:</label>
         <input name="name" type="" value="{{$hive -> name}}">
 
-        <input  type="submit" value="Update">
+        <input  type="submit" value="Confirmar">
 
     </form>
 

@@ -1,46 +1,46 @@
 @extends('template')
 
-    @section('title', 'Index')
+    @section('title', 'Apiarios')
     @section('content')
 
     <div class="  p-6">
         <!--Table Card-->
         <div class="bg-white border-transparent rounded-lg shadow-xl">
-            <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+            <diV class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex justify-between text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600">Listado</h2>
-            </div>
+                <a href="{{route('hives.create')}}" class="font-bold uppercase text-gray-600" flex-shrink-0>AÑADIR APIARIO</a>
+            </diV>
             <div class="p-5">
                 <table class="w-full p-5 text-gray-700">
                     <thead>
                         <tr>
-                            <th class="text-left text-blue-900">Name</th>
-                            <th class="text-left text-blue-900">Side</th>
-                            <th class="text-left text-blue-900">Role</th>
+                            <th class="text-center text-blue-900">ID</th>
+                            <th class="text-center text-blue-900">Nombre</th>
+                            <th class="text-center text-blue-900">Acción</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        @foreach ($apiaries as $apiary)
                         <tr>
-                            <td>Obi Wan Kenobi</td>
-                            <td>Light</td>
-                            <td>Jedi</td>
+                            <th scope="row" class="text-center">{{ $apiary->id }}</th>
+                            <td class="text-center">{{$apiary->name}}</td>
+                            <td class="flex items-center justify-center space-x-2">
+                                
+                            <a class="box-content" href="{{route('apiaries.edit', $apiary->id)}}">EDITAR</a>
+
+                            <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
+
+                                @csrf
+                                @method('DELETE')
+                                <input class="box-content cursor-pointer" type="submit" value="ELIMINAR" onclick="return confirm('Está por eliminar el apiario: {{$apiary->name}}')">
+
+
+                            </form>
                         </tr>
-                        <tr>
-                            <td>Greedo</td>
-                            <td>South</td>
-                            <td>Scumbag</td>
-                        </tr>
-                        <tr>
-                            <td>Darth Vader</td>
-                            <td>Dark</td>
-                            <td>Sith</td>
-                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
-
-                <p class="py-2"><a href="#">See More issues...</a></p>
-
             </div>
         </div>
         <!--/table Card-->
