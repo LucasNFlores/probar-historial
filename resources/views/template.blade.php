@@ -32,6 +32,7 @@
         @include('base._sidebar')
         @include('base._board')
     </main>
+  @yield('content')
 </body>
 </html>
 
