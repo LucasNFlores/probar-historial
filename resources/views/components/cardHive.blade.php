@@ -1,6 +1,6 @@
 <div>
-    <div class="card">
-        <img class="w-full h-full object-cover"
+    <!--<div class="card">-->
+        <img class="w-full h-full object-cover rounded-t-lg"
             src="/images/colmena.png" alt="colmena"/>
 
         <div class="p-5 flex flex-col gap-3">
@@ -38,5 +38,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    <!--</div>-->
 </div>

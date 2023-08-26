@@ -97,7 +97,8 @@
 
         <div class="flex flex-col md:flex-row">
             <nav aria-label="alternative nav">
-                <div class="bg-gray-800 shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
+                <div
+                    class="bg-gray-800 shadow-xl h-20 fixed bottom-0 mt-12 md:relative md:h-screen z-10 w-full md:w-48 content-center">
 
                     <div
                         class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
@@ -137,6 +138,7 @@
 
                 </div>
             </nav>
+            
             <section>
                 <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
@@ -515,5 +517,5 @@
     @yield('content')
 
 </body>
-</html>
 
+</html>

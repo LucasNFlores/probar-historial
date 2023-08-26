@@ -8,8 +8,8 @@ use App\Http\Controllers\VariableController;
 use App\Http\Controllers\DataController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('dashboard');
+}) -> name('dashboard');
 
 Route::get('/template', function () {
     return view('template');
@@ -19,9 +19,7 @@ Route::get('/template2', function () {
 });
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+
 
 
 
