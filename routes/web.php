@@ -5,6 +5,7 @@ use App\Http\Controllers\ApiaryController;
 use App\Http\Controllers\HivesController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
+use App\Http\Controllers\DataController;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -87,6 +88,22 @@ Route::get('/variables/{variable}/edit', [VariableController::class, 'edit']) ->
 Route::put('/variables/{variable}', [VariableController::class, 'update']) -> name('update');
 
 Route::delete('/variables/{variable}', [VariableController::class, 'destroy']) -> name('destroy');
+
+
+
+//rutas data
+
+Route::get('/datas', [DataController::class, 'index']) -> name('datas.index');
+
+Route::get('/datas/nuevo', [DataController::class, 'create']) -> name('createdata');
+
+Route::post('/datas', [DataController::class, 'store']) -> name('store');
+
+Route::get('/datas/{variable}/edit', [DataController::class, 'edit']) -> name('edit');
+
+Route::put('/datas/{variable}', [DataController::class, 'update']) -> name('update');
+
+Route::delete('/datas/{variable}', [DataController::class, 'destroy']) -> name('destroy');
 
 
 

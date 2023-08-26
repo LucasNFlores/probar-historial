@@ -50,9 +50,13 @@
 
         </div>
     </main>
+ 
+  @yield('content')
+ 
     <footer>
 
     </footer>
+ 
 </body>
 
 <script>
