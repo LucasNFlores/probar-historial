@@ -18,6 +18,14 @@ class HivesController extends Controller
         ]); #Array asociativo
     }
 
+    public function dashboard()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
+    {
+        $hives = Hive::all();
+        return view('dashboard', [
+            'hives' => $hives
+        ]); #Array asociativo
+    }
+
     /**
      * Show the form for creating a new resource.
      */

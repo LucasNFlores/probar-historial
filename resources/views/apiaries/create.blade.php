@@ -1,6 +1,6 @@
 @extends('template')
 
-    @section('title', 'Create')
+    @section('title', 'Nuevo Apiario')
 
     @section('content')
 
@@ -10,7 +10,7 @@
 
         <label for="primerNombre">Nombre:<input name="name" type=""></label>
 
-        <input  type="submit">
+        <input  class="cursor-pointer" type="submit" value="Añadir Apiario">
 
     </form>
 

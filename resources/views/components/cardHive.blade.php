@@ -28,7 +28,7 @@
                 </span>
                 <!--Detalles-->
                 <div class="mt-5 flex gap-2">
-                    <button class="button-detalle">
+                    <button class="button-detalle rounded-full">
                         Detalles
                     </button>
                      <!--Actualizacion-->
