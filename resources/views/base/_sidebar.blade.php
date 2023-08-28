@@ -16,17 +16,22 @@
                             </li>
                             <li class="mr-3 flex-1">
                                 <a href="{{route('hives.index')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-orange-500">
-                                    <i class="fa fa-envelope pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Colmenas</span>
+                                    <span class="  material-icons pr-0 md:pr-3  ">hive</span><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Colmenas</span>
                                 </a>
                             </li>
                             <li class="mr-3 flex-1">
-                                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-orange-500">
-                                    <i class="fas fa-chart-area pr-0 md:pr-3 text-white-600"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Dispositivos</span>
+                                <a href="{{route('devices.index')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-orange-500">
+                                    <span class="material-icons pr-0 md:pr-3 text-white-600">devices</span><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Dispositivos</span>
                                 </a>
                             </li>
                             <li class="mr-3 flex-1">
-                                <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2  border-gray-800 hover:border-orange-500">
-                                    <i class="fas fa-chart-area pr-0 md:pr-3 text-white-600"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Notificaciones</span>
+                                <a href="{{route('variables.index')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2  border-gray-800 hover:border-orange-500">
+                                    <span class="material-icons pr-0 md:pr-3 text-white-600">data_array</span><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Variables</span>
+                                </a>
+                            </li>
+                            <li class="mr-3 flex-1">
+                                <a href="{{route('datas.index')}}" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2  border-gray-800 hover:border-orange-500">
+                                    <span class="material-icons pr-0 md:pr-3 text-white-600">dataset</span><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Datos</span>
                                 </a>
                             </li>
                         </ul>

@@ -2,36 +2,48 @@
 
     @section('title', 'Index')
     @section('content')
-    <div class="shadow-md sm:rounded-lg border-t- border">
-        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+    <div class="  p-6">
+        <!--Table Card-->
+        <div class="bg-white border-transparent rounded-lg shadow-xl">
+            <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex justify-between text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                <h2 class="font-bold uppercase text-gray-600">Listado</h2>
+            </div>
+
+    <div class="p-5">
+
+        <table class="w-full text-sm text-left text-gray-700 uppercase ">
+            <thead class="">
                 <tr class="  border-transparent rounded-lg shadow-xl">
-                    <th scope="col" class="px-6 py-3 text-center">Id</th>
-                    <th scope="col" class="px-6 py-3 text-center">Name </th>
-                    <th scope="col" class="px-6 py-3 text-center">measure </th>
-                    <th scope="col" class="px-6 py-3 text-center"><a href="{{route('createdata')}}">New Data</a></th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Id</th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Nombre </th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Valor </th>
+                    <th scope="col" class="px-6 py-3 text-center font-bold   text-blue-900">Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($datas as $data)
                 <tr>
-                    <th scope="row" class="text-center border-transparent shadow-xl">{{ $data->id }}</th>
-                    <td class="text-center border-transparent shadow-xl">{{$data->name}}</td>
-                    <td class="text-center border-transparent shadow-xl">{{$data->measure}}</td>
-                    <td class="text-center border-transparent shadow-xl"><a href="{{route('edit', $data->id)}}">Edit</a>
-
-                    <form action="{{route('destroy', $data->id)}}" method="POST">
-
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="Delete"   onclick="return confirm('¿are you sure you want to delete?')">
-
-
+                    <th scope="row" class="text-center ">{{ $data->id }}</th>
+                    <td class="text-center ">{{$data->name}}</td>
+                    <td class="text-center ">{{$data->value}}</td>
+                    <td class="text-center "><a href="{{route('edit', $data->id)}}">
+                        <form action="{{route('destroy', $data->id)}}" method="POST">
+                        <a href="{{route('createdata')}}" class="opacity-50 hover:opacity-100">Agregar<span class="material-icons cursor-pointer " >add</span></a>
+                            @csrf
+                            @method('DELETE')
+                            <input class="box-content cursor-pointer   material-icons " type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$data->name}}')">
+                        <span class="material-icons cursor-pointer">edit</span> </a></td>
                     </form>
                 </tr>
-                @endforeach
+            @endforeach
             </tbody>
         </table>
     </div>
+</div>
+<!--/table Card-->
 
-    @endsection
+@endsection
+
+
+
