@@ -8,7 +8,7 @@
         <div class="bg-white border-transparent rounded-lg shadow-xl">
             <diV class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex justify-between text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600">Listado</h2>
-                <a href="{{route('hives.create')}}" class="font-bold uppercase text-gray-600" flex-shrink-0>AÑADIR APIARIO</a>
+                <a href="{{route('apiaries.create')}}" class="font-bold uppercase text-gray-600" flex-shrink-0>AÑADIR APIARIO</a>
             </diV>
             <div class="p-5">
                 <table class="w-full p-5 text-gray-700">

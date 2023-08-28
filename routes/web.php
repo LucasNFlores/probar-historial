@@ -7,9 +7,9 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
 use App\Http\Controllers\DataController;
 
-Route::get('/', function () {
-    return view('dashboard');
-}) -> name('dashboard');
+// Route::get('/', function () {
+//     return view('dashboard');
+// }) -> name('dashboard');
 
 Route::get('/template', function () {
     return view('template');
@@ -17,6 +17,9 @@ Route::get('/template', function () {
 Route::get('/template2', function () {
     return view('template2');
 });
+
+//Ruta que pasa los datos de las colmenas al tablero
+Route::get('/', [HivesController::class, 'dashboard']) -> name('dashboard');
 
 
 

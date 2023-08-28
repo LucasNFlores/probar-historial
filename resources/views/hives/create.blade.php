@@ -10,7 +10,7 @@
 
         <label for="primerNombre">Nombre:<input name="name" type=""></label>
 
-        <input  type="submit" value="Añadir Colmena">
+        <input  class="cursor-pointer" type="submit" value="Añadir Colmena">
 
     </form>
 

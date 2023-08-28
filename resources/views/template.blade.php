@@ -50,11 +50,9 @@
 
         </div>
     </main>
-
     <footer>
 
     </footer>
- 
 </body>
 
 <script>
