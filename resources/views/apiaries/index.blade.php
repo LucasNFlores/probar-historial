@@ -26,7 +26,7 @@
                             <th scope="row" class="text-center">{{ $apiary->id }}</th>
                             <td class="text-center">{{$apiary->name}}</td>
                             <td class="flex items-center justify-center space-x-2">
-                                
+
                             <a class="box-content" href="{{route('apiaries.edit', $apiary->id)}}">EDITAR</a>
 
                             <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
