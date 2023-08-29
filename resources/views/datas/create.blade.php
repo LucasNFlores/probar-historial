@@ -13,7 +13,7 @@ como que pese mas y se halle menos abejas de la estimada y eso afecte en la prod
 
         @csrf
        name:<input name="name" type="text">
-       measure:<input  name="measure" type="number">
+       value:<input  name="value" type="number">
         <input  type="submit">
 
     </form>

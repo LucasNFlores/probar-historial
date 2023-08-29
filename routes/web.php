@@ -60,7 +60,7 @@ Route::get('/devices', [DeviceController::class, 'index']) -> name('devices.inde
 
 Route::get('/devices/nuevo', [DeviceController::class, 'create']) -> name('createdevice');
 
-Route::post('/devices', [DeviceController::class, 'store']) -> name('store');
+Route::post('/devices', [DeviceController::class, 'store']) -> name('storedevice');
 
 Route::get('/devices/{device}/edit', [DeviceController::class, 'edit']) -> name('edit');
 
@@ -84,7 +84,7 @@ Route::get('/variables', [VariableController::class, 'index']) -> name('variable
 
 Route::get('/variables/nuevo', [VariableController::class, 'create']) -> name('createvariable');
 
-Route::post('/variables', [VariableController::class, 'store']) -> name('store');
+Route::post('/variables', [VariableController::class, 'store']) -> name('storevariable');
 
 Route::get('/variables/{variable}/edit', [VariableController::class, 'edit']) -> name('edit');
 

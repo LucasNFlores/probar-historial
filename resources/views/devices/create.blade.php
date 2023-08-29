@@ -4,7 +4,7 @@
 
     @section('content')
 
-    <form action="{{route('store')}}" method="POST">
+    <form action="{{route('storedevice')}}" method="POST">
 
         @csrf
 

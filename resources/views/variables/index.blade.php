@@ -27,13 +27,16 @@
                     <td class="text-center">{{$variable->name}}</td>
                     <td class="text-center">{{$variable->measure}}</td>
 
-                    <td class="text-center "><a href="{{route('edit', $variable->id)}}">
+                    <td>
+                        <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>
                         <form action="{{route('destroy', $variable->id)}}" method="POST">
                         <a href="{{route('createvariable')}}" title="Agregar" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >add</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer opacity-50 hover:opacity-100   material-icons " type="submit" value="delete"  title="Eliminar" onclick="return confirm('Está por eliminar la variable: {{$variable->name}}')">
-                        <span class="material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar"  >edit</span> </a></td>
+                            <a href="{{route('edit', $variable->id)}}">
+                                <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>
+                        </td>
                     </form>
                 </tr>
             @endforeach
