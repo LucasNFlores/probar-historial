@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> <!--Replace with your tailwind.css once created-->
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!--Totally optional :) -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
 
     <title>@yield('title')</title>
@@ -22,7 +23,7 @@
     @vite(['resources/css/app,css', 'resources/js/app.js'])
 
 </head>
-<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+<body class="bg-zinc-900 font-sans leading-normal tracking-normal mt-12">
     <!--Se incluye la barra de navegacion -->
     <header>
         @include('base._navbar')
@@ -33,12 +34,12 @@
             @include('base._sidebar')
 
             <!--Pizzarron-->
-            <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
+            <div id="main" class="main-content flex-1 bg-gray-400 mt-12 md:mt-2 pb-24 md:pb-5">
 
                 <!--Encabezado de pizarron-->
-               <div class="bg-gray-800 pt-3">
+               <div class="bg-zinc-900 pt-3">
                    <div
-                       class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+                       class="rounded-tl-3xl bg-gradient-to-r from-orange-600 to-zinc-700 p-4 shadow text-2xl text-white">
                        <h1 class="font-bold pl-2">@yield('title')</h1>
                    </div>
                </div>
