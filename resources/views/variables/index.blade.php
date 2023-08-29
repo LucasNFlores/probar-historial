@@ -28,7 +28,7 @@
                     <td class="text-center">{{$variable->measure}}</td>
 
                     <td>
-                        <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>
+
                         <form action="{{route('destroy', $variable->id)}}" method="POST">
                         <a href="{{route('createvariable')}}" title="Agregar" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >add</span></a>
                             @csrf
