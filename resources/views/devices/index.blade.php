@@ -20,6 +20,7 @@
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Nombre </th>
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Funcionalidad </th>
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Estado</th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Acciones </th>
 
                 </tr>
             </thead>
@@ -31,14 +32,15 @@
                     <td class="text-center">{{$device->functionality}}</td>
                     <td class="text-center">{{$device->state}}</td>
 
-                    <td class="text-center "><a href="{{route('edit', $device->id)}}">
-                        <form action="{{route('destroy', $device->id)}}" method="POST">
+                    <td class="text-center ">
+                        <form action="{{route('destroydevice', $device->id)}}" method="POST">
                         <a href="{{route('createdevice')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Agregar">add</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer   material-icons opacity-50 hover:opacity-100" title="Eliminar" type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$device->name}}')">
-                        <span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span> </a></td>
-                    </form>
+                            <a href="{{route('editdevice', $device->id)}}">
+                            <span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span> </a>
+                    </form></td>
                 </tr>
             @endforeach
             </tbody>
