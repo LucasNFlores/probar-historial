@@ -4,7 +4,7 @@
 
     @section('content')
 
-    <form action="{{route('update', $device)}}" method="POST">
+    <form action="{{route('updatedevice', $device)}}" method="POST">
 
         @csrf
         @method('PUT')

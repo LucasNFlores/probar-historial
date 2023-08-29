@@ -22,7 +22,7 @@
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Id</th>
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Nombre </th>
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Valor </th>
-                    <th scope="col" class="px-6 py-3 text-center font-bold   text-blue-900">Acciones</th>
+                    <th scope="col" class="px-6 py-3  text-center  text-blue-900">Acciones</th>
 
                 </tr>
             </thead>
@@ -32,13 +32,14 @@
                     <th scope="row" class="text-center ">{{ $data->id }}</th>
                     <td class="text-center ">{{$data->name}}</td>
                     <td class="text-center ">{{$data->value}}</td>
-                    <td class="text-center "><a href="{{route('edit', $data->id)}}">
-                        <form  action="{{route('destroy', $data->id)}}" method="POST">
+                    <td class="text-center" >
+                        <form  action="{{route('destroydata', $data->id)}}" method="POST">
                         <a href="{{route('createdata')}}" class="opacity-50 hover:opacity-100"><span title="Agregar" class="material-icons cursor-pointer " >add</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer opacity-50 hover:opacity-100  material-icons " title="Eliminar" type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$data->name}}')">
-                        <span  title="Editar" class="material-icons opacity-50 hover:opacity-100 cursor-pointer  ">edit</span> </a></td>
+                            <a href="{{route('editdata', $data->id)}}">
+                            <span  title="Editar" class="material-icons opacity-50 hover:opacity-100 cursor-pointer  ">edit</span> </a></td>
                     </form>
                 </tr>
             @endforeach

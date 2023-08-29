@@ -62,11 +62,11 @@ Route::get('/devices/nuevo', [DeviceController::class, 'create']) -> name('creat
 
 Route::post('/devices', [DeviceController::class, 'store']) -> name('storedevice');
 
-Route::get('/devices/{device}/edit', [DeviceController::class, 'edit']) -> name('edit');
+Route::get('/devices/{device}/edit', [DeviceController::class, 'edit']) -> name('editdevice');
 
-Route::put('/devices/{device}', [DeviceController::class, 'update']) -> name('update');
+Route::put('/devices/{device}', [DeviceController::class, 'update']) -> name('updatedevice');
 
-Route::delete('/devices/{device}', [DeviceController::class, 'destroy']) -> name('destroy');
+Route::delete('/devices/{device}', [DeviceController::class, 'destroy']) -> name('destroydevice');
 
 
 //Variables
@@ -86,11 +86,11 @@ Route::get('/variables/nuevo', [VariableController::class, 'create']) -> name('c
 
 Route::post('/variables', [VariableController::class, 'store']) -> name('storevariable');
 
-Route::get('/variables/{variable}/edit', [VariableController::class, 'edit']) -> name('edit');
+Route::get('/variables/{variable}/edit', [VariableController::class, 'edit']) -> name('editvariable');
 
-Route::put('/variables/{variable}', [VariableController::class, 'update']) -> name('update');
+Route::put('/variables/{variable}', [VariableController::class, 'update']) -> name('updatevariable');
 
-Route::delete('/variables/{variable}', [VariableController::class, 'destroy']) -> name('destroy');
+Route::delete('/variables/{variable}', [VariableController::class, 'destroy']) -> name('destroyvariable');
 
 
 
@@ -100,13 +100,13 @@ Route::get('/datas', [DataController::class, 'index']) -> name('datas.index');
 
 Route::get('/datas/nuevo', [DataController::class, 'create']) -> name('createdata');
 
-Route::post('/datas', [DataController::class, 'store']) -> name('store');
+Route::post('/datas', [DataController::class, 'store']) -> name('storedata');
 
-Route::get('/datas/{variable}/edit', [DataController::class, 'edit']) -> name('edit');
+Route::get('/datas/{variable}/edit', [DataController::class, 'edit']) -> name('editdata');
 
-Route::put('/datas/{variable}', [DataController::class, 'update']) -> name('update');
+Route::put('/datas/{variable}', [DataController::class, 'update']) -> name('updatedata');
 
-Route::delete('/datas/{variable}', [DataController::class, 'destroy']) -> name('destroy');
+Route::delete('/datas/{variable}', [DataController::class, 'destroy']) -> name('destroydata');
 
 
 

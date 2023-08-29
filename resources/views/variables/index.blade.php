@@ -18,6 +18,7 @@
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Id</th>
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Nombre </th>
                     <th scope="col" class="px-6 py-3 text-center text-blue-900">Variable </th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Acciones </th>
                 </tr>
             </thead>
             <tbody>
@@ -27,14 +28,14 @@
                     <td class="text-center">{{$variable->name}}</td>
                     <td class="text-center">{{$variable->measure}}</td>
 
-                    <td>
+                    <td class="text-center">
 
-                        <form action="{{route('destroy', $variable->id)}}" method="POST">
+                        <form action="{{route('destroyvariable', $variable->id)}}" method="POST">
                         <a href="{{route('createvariable')}}" title="Agregar" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >add</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer opacity-50 hover:opacity-100   material-icons " type="submit" value="delete"  title="Eliminar" onclick="return confirm('Está por eliminar la variable: {{$variable->name}}')">
-                            <a href="{{route('edit', $variable->id)}}">
+                            <a href="{{route('editvariable', $variable->id)}}">
                                 <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>
                         </td>
                     </form>
