@@ -59,11 +59,6 @@
                 <div class="bg-white border-transparent rounded-lg shadow-xl">
 
                     <x-cardHive name="{{ $hive->name }}" temp="37ºC" humd="25%" pres="1025pa" peso="54kg" />
-
-
-
-
-
                     <!--/Advert Card-->
                 </div>
             </div>
