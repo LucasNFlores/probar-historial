@@ -10,7 +10,7 @@
                     <span class="material-icons cursor-pointer " title="Agregar">add</span></a>
             </div>
 
-    <div class="p-5">
+    <div class="p-5 overflow-x-scroll">
 
         <table class="w-full text-sm text-left text-gray-700 uppercase ">
             <thead class="">
@@ -31,7 +31,7 @@
                     <td class="text-center">
 
                         <form action="{{route('destroyvariable', $variable->id)}}" method="POST">
-                        <a href="{{route('createvariable')}}" title="Agregar" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >add</span></a>
+                        <a href="{{route('createvariable')}}" title="Detalles" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >visibility</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer opacity-50 hover:opacity-100   material-icons " type="submit" value="delete"  title="Eliminar" onclick="return confirm('Está por eliminar la variable: {{$variable->name}}')">

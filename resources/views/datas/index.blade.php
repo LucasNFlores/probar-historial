@@ -14,7 +14,7 @@
 
 
 
-    <div class="p-5">
+    <div class="p-5 overflow-x-scroll">
 
         <table class="w-full text-sm text-left text-gray-700 uppercase ">
             <thead class="">
@@ -34,7 +34,7 @@
                     <td class="text-center ">{{$data->value}}</td>
                     <td class="text-center" >
                         <form  action="{{route('destroydata', $data->id)}}" method="POST">
-                        <a href="{{route('createdata')}}" class="opacity-50 hover:opacity-100"><span title="Agregar" class="material-icons cursor-pointer " >add</span></a>
+                        <a href="{{route('createdata')}}" class="opacity-50 hover:opacity-100"><span title="Detalles" class="material-icons cursor-pointer " >visibility</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer opacity-50 hover:opacity-100  material-icons " title="Eliminar" type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$data->name}}')">

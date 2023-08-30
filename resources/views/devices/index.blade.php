@@ -11,7 +11,7 @@
                     <span class="material-icons cursor-pointer " title="Agregar">add</span></a>
             </div>
 
-    <div class="p-5">
+    <div class="p-5 overflow-x-scroll">
 
         <table class="w-full text-sm text-left text-gray-700 uppercase ">
             <thead class="">
@@ -34,7 +34,7 @@
 
                     <td class="text-center ">
                         <form action="{{route('destroydevice', $device->id)}}" method="POST">
-                        <a href="{{route('createdevice')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Agregar">add</span></a>
+                        <a href="{{route('createdevice')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Detalles">visibility</span></a>
                             @csrf
                             @method('DELETE')
                             <input class="box-content cursor-pointer   material-icons opacity-50 hover:opacity-100" title="Eliminar" type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$device->name}}')">
