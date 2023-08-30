@@ -27,13 +27,13 @@
                             <td class="text-center">{{$hive->name}}</td>
                             <td class="flex items-center justify-center space-x-2">
                                 
-                                <a class="box-content" href="{{route('hives.edit', $hive->id)}}">EDITAR</a>
+                                <a class="box-content" href="{{route('hives.edit', $hive->id)}}"><span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span></a>
     
                                 <form action="{{route('hives.destroy', $hive->id)}}" method="POST">
         
                                     @csrf
                                     @method('DELETE')
-                                    <input class="box-content cursor-pointer" type="submit" value="ELIMINAR" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')">
+                                    <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')">
         
         
                                 </form>

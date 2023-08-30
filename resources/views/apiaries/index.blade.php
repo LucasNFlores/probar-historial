@@ -27,13 +27,13 @@
                             <td class="text-center">{{$apiary->name}}</td>
                             <td class="flex items-center justify-center space-x-2">
 
-                            <a class="box-content" href="{{route('apiaries.edit', $apiary->id)}}">EDITAR</a>
+                            <a class="box-content" href="{{route('apiaries.edit', $apiary->id)}}"><span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span></a>
 
                             <form action="{{route('apiaries.destroy', $apiary->id)}}" method="POST">
 
                                 @csrf
                                 @method('DELETE')
-                                <input class="box-content cursor-pointer" type="submit" value="ELIMINAR" onclick="return confirm('Está por eliminar el apiario: {{$apiary->name}}')">
+                                <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar el apiario: {{$apiary->name}}')">
 
 
                             </form>
