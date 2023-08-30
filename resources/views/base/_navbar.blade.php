@@ -1,4 +1,4 @@
-<nav aria-label="menu nav" class="bg-zinc-900 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
+<nav aria-label="menu nav" class=" bg-zinc-900 md:pt-2 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
     <div class="flex flex-wrap items-center">
 
         <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white pl-2">
@@ -22,13 +22,13 @@
             <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
                 <li class="flex-1 md:flex-none md:mr-3">
                     <div class="relative inline-block">
-                        <button onclick="toggleDD('myDropdown')" class="drop-button text-white py-2 px-2"> <span class="pr-2"><span class="material-symbols-outlined">account_circle</span></span> Usuario <svg class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <button onclick="toggleDD('myDropdown')" class="flex items-center justify-between drop-button text-white py-2 px-2"><span class="material-symbols-outlined pr-2">account_circle</span> Usuario <svg class="pl-2 h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg></button>
                         <div id="myDropdown" class="dropdownlist absolute bg-zinc-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible  rounded-lg">
-                            <a href="#" class="p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="fa fa-user fa-fw"></i> Mi Perfil</a>
-                            <a href="#" class="p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="fa fa-cog fa-fw"></i> Configuración</a>
+                            <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fa fa-user fa-fw"></i> Mi Perfil</a>
+                            <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fa fa-cog fa-fw"></i> Configuración</a>
                             <div class="border border-gray-800"></div>
-                            <a href="#" class="p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="fas fa-sign-out-alt fa-fw"></i> Salir</a>
+                            <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fas fa-sign-out-alt fa-fw"></i> Salir</a>
                         </div>
                     </div>
                 </li>
