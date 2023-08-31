@@ -1,6 +1,6 @@
 @extends('template')
 
-    @section('title', 'Index')
+    @section('title', 'Dispositivos')
     @section('content')
     <div class="  p-6">
         <!--Table Card-->

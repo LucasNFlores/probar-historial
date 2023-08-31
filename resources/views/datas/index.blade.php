@@ -1,6 +1,6 @@
 @extends('template')
 
-    @section('title', 'Index')
+    @section('title', 'Datos')
     @section('content')
 
     <div class="  p-6">
