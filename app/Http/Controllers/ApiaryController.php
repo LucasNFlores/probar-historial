@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Apiary;
+use App\Http\Requests\StoreApiaryRequest;
+use App\Http\Requests\UpdateApiaryRequest;
 
 class ApiaryController extends Controller
 {
@@ -23,18 +25,22 @@ class ApiaryController extends Controller
      */
     public function create()
     {
-        return view('apiaries.create');
+        $apiary = new Apiary();
+        return view('apiaries.create',compact('apiary'));
     }
 
     /**
-     * Store a newly created resource in storage. 
+     * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreApiaryRequest $request)
     {
-        $request -> name;
+        $validated = $request->validated();
+
         $apiary = new Apiary();
-        $apiary->name=$request['name'];
+        $apiary->name=$request->name;
+
         $apiary -> save();
+
         return redirect()->route('apiaries.index');
     }
 
@@ -60,9 +66,10 @@ class ApiaryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateApiaryRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+
         $apiary = Apiary::find($id);
         $apiary -> name = $request -> name;
         $apiary->save();
