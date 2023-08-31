@@ -1,21 +1,12 @@
 @extends('template')
 
-    @section('title', 'Edit')
+    @section('title', 'Editar Apiario')
 
     @section('content')
-
-    <form action="{{route('apiaries.update', $apiary)}}" method="POST">
-
-        @csrf
-        @method('PUT')
-
-        <label for="primerNombre">Nombre:</label>
-        <input name="name" type="" value="{{$apiary -> name}}">
-
-        <input  type="submit" value="Update">
-
-    </form>
-
-
+        <div class="px-10 pt-12">
+            <form action="{{route('apiaries.update',$apiary->id)}}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                @method('put')
+                @include('apiaries._form',['botonNombre'=>'Actualizar','botonFondo'=>'bg-orange-500','botonFondoHover'=>'hover:bg-orange-700'])
+            </form>
+        </div>
     @endsection
-    
