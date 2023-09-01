@@ -1,6 +1,6 @@
 @extends('template')
 
-    @section('title', 'Index')
+    @section('title', 'Variables')
     @section('content')
      <div class="  p-6">
         <div class="bg-white border-transparent rounded-lg shadow-xl">
