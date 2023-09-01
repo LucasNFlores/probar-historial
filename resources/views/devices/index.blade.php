@@ -12,6 +12,7 @@
                         class="material-icons cursor-pointer " title="Agregar">add</span></a>
             </div>
 
+
             <div class="p-5 overflow-x-scroll">
 
                 <table class="w-full text-sm text-left text-gray-700 uppercase ">
@@ -56,5 +57,55 @@
             </div>
         </div>
         <!--/table Card-->
+
+    <div class="p-5 overflow-x-scroll">
+
+        <table class="w-full text-sm text-left text-gray-700 uppercase ">
+            <thead class="">
+                <tr class="  border-transparent rounded-lg  ">
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Id</th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Nombre </th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Funcionalidad </th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Estado</th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">hiveid </th>
+                    <th scope="col" class="px-6 py-3 text-center text-blue-900">Acciones </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @forelse ($devices as $device)
+
+                <tr>
+                    <th scope="row" class="text-center">{{ $device->id }}</th>
+                    <td class="text-center">{{$device->name}}</td>
+                    <td class="text-center">{{$device->functionality}}</td>
+                    <td class="text-center">{{$device->state}}</td>
+                    <td class="text-center">{{$device->hive_id}}</td>
+
+                    <td class="text-center ">
+                        <form action="{{route('destroydevice', $device->id)}}" method="POST">
+                        <a href="{{route('createdevice')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Detalles">visibility</span></a>
+                            @csrf
+                            <a href="{{route('editdevice', $device->id)}}">
+                                <span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span> </a>
+                            @method('DELETE')
+                            <input class="box-content cursor-pointer   material-icons opacity-50 hover:opacity-100" title="Eliminar" type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$device->name}}')">
+                    </form></td>
+                    @empty
+                    <p>no se encontrarón Dispositivos</p>
+                </tr>
+            @endforelse
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--/table Card-->
+
+@endsection
+
+
+
+
+
 
     @endsection

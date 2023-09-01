@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Variable;
+use App\Http\Requests\StoreVariableRequest;
+use App\Http\Requests\UpdateVariableRequest;
 class VariableController extends Controller
 {
     public function index()
@@ -13,46 +15,39 @@ class VariableController extends Controller
         ]);
     }
 
-
-    public function create()
+    public function store(StoreVariableRequest $request)
     {
-        return view('variables.create');
-    }
+        $validated = $request->validated();
 
-
-    public function store(Request $request)
-    {
-        $request -> name;
         $variable = new Variable();
         $variable->name=$request['name'];
         $variable->measure=$request['measure'];
         $variable -> save();
         return redirect()->route('variables.index');
     }
-
-
     public function show(int $id)
     {
 
     }
 
-
     public function edit(int $id)
     {
         $variable = Variable::find($id);
-
        return view ('variables.edit', compact('variable'));
 
     }
-
-    public function update(Request $request, int $id)
+    public function create()
     {
+        $variable=new Variable();
+        return view('variables.create',compact('variable'));
+    }
+    public function update(UpdateVariableRequest $request, int $id)
+    {
+        $validated = $request->validated();
 
         $variable = Variable::find($id);
         $variable -> name = $request -> name;
         $variable -> measure = $request -> measure;
-
-
         $variable->save();
         return redirect()->route('variables.index');
     }
