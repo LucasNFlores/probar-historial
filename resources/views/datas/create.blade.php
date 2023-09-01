@@ -1,7 +1,7 @@
 
     @extends('template')
 
-    @section('title', 'Dato')
+    @section('title', 'Nuevo Dato')
 
     @section('content')
         <div class="px-10 pt-12">

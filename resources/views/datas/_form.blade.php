@@ -7,8 +7,6 @@
 
            id="name" type="text"  value="{{old('name',$data->name)}}">
 
-           id="name" type="text"  value="{{old('name',$apiary->name)}}">
-
     @error('name')
         <p class="text-red-500 text-xs italic">{{$message}}</p>
     @enderror
@@ -32,8 +30,6 @@
     </button>
 
     <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="{{route('datas.index')}}">
-
-    <a class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="{{route('apiaries.index')}}">
 
         Cancelar
     </a>

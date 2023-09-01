@@ -73,7 +73,7 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($devices as $device)
+            @forelse ($devices as $device)
 
                 <tr>
                     <th scope="row" class="text-center">{{ $device->id }}</th>
@@ -90,10 +90,12 @@
                                 <span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span> </a>
                             @method('DELETE')
                             <input class="box-content cursor-pointer   material-icons opacity-50 hover:opacity-100" title="Eliminar" type="submit" value="delete"   onclick="return confirm('Está por eliminar el dato: {{$device->name}}')">
-                    </form></td>
-                    @empty
+                        </form>
+                    </td>
+                </tr>   
+            @empty
                     <p>no se encontrarón Dispositivos</p>
-                </tr>
+                
             @endforelse
             </tbody>
         </table>
@@ -103,9 +105,3 @@
 
 @endsection
 
-
-
-
-
-
-    @endsection

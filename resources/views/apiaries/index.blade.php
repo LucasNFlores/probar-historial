@@ -23,7 +23,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($apiaries as $apiary)
+                        @forelse ($apiaries as $apiary)
                             <tr>
                                 <th scope="row" class="text-center">{{ $apiary->id }}</th>
                                 <td class="text-center">{{ $apiary->name }}</td>
@@ -47,8 +47,12 @@
                                         
 
                                     </form>
+                            @empty
+
+                                <p>No se encontró el apario {{$apiary}}</p>        
+
                             </tr>
-                        @endforeach
+                        @endforelse
                     </tbody>
                 </table>
             </div>

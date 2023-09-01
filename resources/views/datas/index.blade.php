@@ -28,7 +28,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($datas as $data)
+                        @forelse ($datas as $data)
                             <tr>
                                 <th scope="row" class="text-center ">{{ $data->id }}</th>
                                 <td class="text-center ">{{ $data->name }}</td>
@@ -51,7 +51,11 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+
+                            <p>No se encontró el dato {{$data}}</p>
+
+                        @endforelse
                     </tbody>
                 </table>
             </div>

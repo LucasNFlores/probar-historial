@@ -1,6 +1,6 @@
 @extends('template')
 
-    @section('title', 'Create')
+    @section('title', 'Nueva Variable')
 
     @section('content')
 <!--se dejo el formulario para probar ingresar valores y ver

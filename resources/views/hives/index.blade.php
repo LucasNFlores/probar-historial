@@ -21,26 +21,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($hives as $hive) <!--Reemplazar por el forelse que contempla la directiva empty "Usuario no encontrado"-->
-                        <tr>
-                            <th class="text-center" scope="row">{{ $hive->id }}</th>
-                            <td class="text-center">{{$hive->name}}</td>
-                            <td class="flex items-center justify-center space-x-2">
-                                
-                                
-    
-                                <form action="{{route('hives.destroy', $hive->id)}}" method="POST">
-                                    <a href="{{route('hives.create')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Detalles">visibility</span></a>
-                                    <a class="box-content" href="{{route('hives.edit', $hive->id)}}"><span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span></a>
-                                    @csrf
-                                    @method('DELETE')
-                                    <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')">
+                        @forelse ($hives as $hive) <!--Reemplazar por el forelse que contempla la directiva empty "Usuario no encontrado"-->
+                            <tr>
+                                <th class="text-center" scope="row">{{ $hive->id }}</th>
+                                <td class="text-center">{{$hive->name}}</td>
+                                <td class="flex items-center justify-center space-x-2">
+                                    
+                                    
         
-        
-                                </form>
-                            </td>
-                        </tr>
-                        @endforeach
+                                    <form action="{{route('hives.destroy', $hive->id)}}" method="POST">
+                                        <a href="{{route('hives.create')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Detalles">visibility</span></a>
+                                        <a class="box-content" href="{{route('hives.edit', $hive->id)}}"><span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span></a>
+                                        @csrf
+                                        @method('DELETE')
+                                        <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')">
+            
+            
+                                    </form>
+                                </td>
+                            </tr>
+                            
+                        @empty
+
+                            <p>No se encontró la colmena {{$hive}}</p>
+
+                        @endforelse
                     </tbody>
                 </table>
             </div>
