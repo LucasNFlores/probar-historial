@@ -1,9 +1,11 @@
 <?php
 
-
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
+
 use App\Models\Hive;
+use App\Http\Requests\StoreHiveRequest;
+use App\Http\Requests\UpdateHiveRequest;
 
 class HivesController extends Controller
 {
@@ -31,17 +33,18 @@ class HivesController extends Controller
      */
     public function create()
     {
-        return view('hives.create');
+        $hive = new Hive();
+        return view('hives.create', compact('hive'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreHiveRequest $request)
     {
-        $request -> name;
+        $validated = $request->validated();
         $hive = new Hive();
-        $hive->name=$request['name'];
+        $hive->name=$request->name;
         $hive -> save();
         return redirect()->route('hives.index');
     }
@@ -68,9 +71,10 @@ class HivesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateHiveRequest $request, string $id)
     {
-        //
+        $validated = $request->validated();
+
         $hive = Hive::find($id);
         $hive -> name = $request -> name;
         $hive->save();

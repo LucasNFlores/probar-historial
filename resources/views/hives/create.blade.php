@@ -3,25 +3,9 @@
     @section('title', 'Nueva Colmena')
 
     @section('content')
-
-    <div class="px-10 pt-12">
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
-            <div class="p-5 items-center text-center justify-between">
-                <table class="w-full p-5 text-gray-700">
-                    <tbody>
-                        <form action="{{route('hives.store')}}" method="POST">
-
-                            @csrf
-                    
-                            <label for="primerNombre" class="">Nombre: <input name="name" type=""></label>
-                    
-                            <input  class="cursor-pointer" type="submit" value=" Añadir Colmena">
-                    
-                        </form>
-                    </tbody>
-                </table>
-            </div>
+        <div class="px-10 pt-12">
+            <form action="{{route('hives.store')}}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                @include('hives._form',['botonNombre'=>'Guardar','botonFondo'=>'bg-blue-500','botonFondoHover'=> 'hover:bg-blue-700'])
+            </form>
         </div>
-</div>
-
     @endsection
