@@ -25,7 +25,6 @@ Route::get('/', [HivesController::class, 'dashboard']) -> name('dashboard');
 
 
 
-
 //Apiarios
 Route::get('/apiaries', [ApiaryController::class, 'index']) -> name('apiaries.index');
 
