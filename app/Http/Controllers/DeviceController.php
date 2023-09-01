@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use App\Models\Device;
+use App\Http\Requests\StoreDeviceRequest;
+use App\Http\Requests\UpdateDeviceRequest;
+
 //listo
 class DeviceController extends Controller
 {
@@ -16,18 +17,16 @@ class DeviceController extends Controller
     }
 
 
-    public function create()
-    {
-        return view('devices.create');
-    }
 
     /* public function create(Device $device)
     {return view('devices.create', compact('device'));}*/
 
 
 
-    public function store(Request $request)
+    public function store(StoreDeviceRequest $request)
     {
+        $validated = $request->validated();
+
         $request -> name;
         $device = new Device();
         $device->name=$request['name'];
@@ -52,8 +51,14 @@ class DeviceController extends Controller
 
     }
 
-    public function update(Request $request, int $id)
+    public function create()
+    {   $device = new Device();
+        return view('devices.create',compact('device'));
+    }
+
+    public function update(UpdateDeviceRequest $request, int $id)
     {
+        $validated = $request->validated();
 
         $device = Device::find($id);
         $device -> name = $request -> name;

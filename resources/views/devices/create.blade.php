@@ -1,21 +1,15 @@
 @extends('template')
 
-    @section('title', 'Create')
+    @section('title', 'Nuevo Dispositivo')
 
     @section('content')
-
-    <form action="{{route('storedevice')}}" method="POST">
-
-        @csrf
-
-       name:<input name="name" type="text">
-       functionality:<input name="functionality" type="text">
-       state:<input  name="state" type="number">
-        <!-- <label for="primerNombre">Date:<input name="datetime" type="datetime"></label>-->
-
-        <input  type="submit">
-
-    </form>
+    <div class="px-10 pt-12">
 
 
-    @endsection
+        <form action="{{route('storedevice')}}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            @include('devices._form',['botonNombre'=>'Guardar','botonFondo'=>'bg-blue-500','botonFondoHover'=> 'hover:bg-blue-700'])
+        </form>
+    </div>
+@endsection
+
+

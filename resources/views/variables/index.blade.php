@@ -22,8 +22,9 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($variables as $variable)
+                @forelse ($variables as $variable)
                 <tr>
+
                     <th scope="row" class="text-center">{{ $variable->id }}</th>
                     <td class="text-center">{{$variable->name}}</td>
                     <td class="text-center">{{$variable->measure}}</td>
@@ -33,14 +34,16 @@
                         <form action="{{route('destroyvariable', $variable->id)}}" method="POST">
                         <a href="{{route('createvariable')}}" title="Detalles" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >visibility</span></a>
                             @csrf
-                            @method('DELETE')
-                            <input class="box-content cursor-pointer opacity-50 hover:opacity-100   material-icons " type="submit" value="delete"  title="Eliminar" onclick="return confirm('Está por eliminar la variable: {{$variable->name}}')">
                             <a href="{{route('editvariable', $variable->id)}}">
                                 <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>
+                            @method('DELETE')
+                            <input class="box-content cursor-pointer opacity-50 hover:opacity-100   material-icons " type="submit" value="delete"  title="Eliminar" onclick="return confirm('Está por eliminar la variable: {{$variable->name}}')">
                         </td>
                     </form>
+                    @empty
+                    <p>no se encontrarón variables</p>
                 </tr>
-            @endforeach
+            @endforelse
             </tbody>
         </table>
     </div>

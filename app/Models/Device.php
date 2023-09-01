@@ -10,11 +10,11 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Device extends Model
 {
     use HasFactory;
-  /*  protected $fillable = [
+    protected $fillable = [
     	'name',
     	'functionality',
-    	'state'
-    ];*/
+    	'state',
+    ];
 
     /**
     * Se recupera la colmena
