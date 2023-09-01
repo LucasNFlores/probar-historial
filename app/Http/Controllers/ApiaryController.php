@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests;
 use App\Models\Apiary;
 use App\Http\Requests\StoreApiaryRequest;
 use App\Http\Requests\UpdateApiaryRequest;
@@ -35,12 +35,9 @@ class ApiaryController extends Controller
     public function store(StoreApiaryRequest $request)
     {
         $validated = $request->validated();
-
         $apiary = new Apiary();
         $apiary->name=$request->name;
-
         $apiary -> save();
-
         return redirect()->route('apiaries.index');
     }
 

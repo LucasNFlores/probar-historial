@@ -103,7 +103,7 @@ Route::post('/datas', [DataController::class, 'store']) -> name('storedata');
 
 Route::get('/datas/{variable}/edit', [DataController::class, 'edit']) -> name('editdata');
 
-Route::put('/datas/{variable}', [DataController::class, 'update']) -> name('updatedata');
+Route::put('/datas/{variable}', [DataController::class, 'update']) -> name('datas.update');
 
 Route::delete('/datas/{variable}', [DataController::class, 'destroy']) -> name('destroydata');
 
