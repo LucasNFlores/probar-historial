@@ -93,6 +93,9 @@ Route::delete('/variables/{variable}', [VariableController::class, 'destroy']) -
 
 
 
+
+
+
 //rutas data
 
 Route::get('/datas', [DataController::class, 'index']) -> name('datas.index');
