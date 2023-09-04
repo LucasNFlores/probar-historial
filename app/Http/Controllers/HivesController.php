@@ -54,7 +54,9 @@ class HivesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $hive = Hive::find($id);
+
+        return view ('hives.show', compact('hive'));
     }
 
     /**

@@ -30,7 +30,7 @@
                                     
         
                                     <form action="{{route('hives.destroy', $hive->id)}}" method="POST">
-                                        <a href="{{route('hives.create')}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Detalles">visibility</span></a>
+                                        <a href="{{route('hives.show', $hive->id)}}" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " title="Detalles">visibility</span></a>
                                         <a class="box-content" href="{{route('hives.edit', $hive->id)}}"><span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span></a>
                                         @csrf
                                         @method('DELETE')
