@@ -63,14 +63,4 @@
         <!--/table Card-->
 
     @endsection
-
-
-
-
-
-
-
-
-
-
     
