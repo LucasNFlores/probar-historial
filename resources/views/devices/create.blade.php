@@ -2,7 +2,7 @@
 
     @section('title', 'Nuevo Dispositivo')
 
-    @section('content')
+@section('content')
     <div class="px-10 pt-12">
 
 
