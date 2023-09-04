@@ -34,6 +34,8 @@ Route::post('/apiaries', [ApiaryController::class, 'store']) -> name('apiaries.s
 
 Route::get('/apiaries/{apiary}/edit', [ApiaryController::class, 'edit']) -> name('apiaries.edit');
 
+Route::get('/apiaries/{apiary}/', [ApiaryController::class, 'show']) -> name('apiaries.show');
+
 Route::put('/apiaries/{apiary}', [ApiaryController::class, 'update']) -> name('apiaries.update');
 
 Route::delete('/apiaries/{apiary}', [ApiaryController::class, 'destroy']) -> name('apiaries.destroy');
