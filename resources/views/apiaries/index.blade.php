@@ -32,7 +32,7 @@
 
 
                                     <form action="{{ route('apiaries.destroy', $apiary->id) }}" method="POST">
-                                        <a href="{{ route('apiaries.create') }}" class="opacity-50 hover:opacity-100"><span
+                                        <a href="{{ route('apiaries.show', $apiary->id) }}" class="opacity-50 hover:opacity-100"><span
                                                 class="material-icons cursor-pointer "
                                                 title="Detalles">visibility</span></a>
                                         @csrf
