@@ -50,6 +50,8 @@ Route::post('/hives', [HivesController::class, 'store']) -> name('hives.store');
 
 Route::get('/hives/{hive}/edit', [HivesController::class, 'edit']) -> name('hives.edit');
 
+Route::get('/hives/{hive}/', [ApiaryController::class, 'show']) -> name('hives.show');
+
 Route::put('/hives/{hive}', [HivesController::class, 'update']) -> name('hives.update');
 
 Route::delete('/hives/{hive}', [HivesController::class, 'destroy']) -> name('hives.destroy');
