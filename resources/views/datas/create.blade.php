@@ -8,6 +8,7 @@
             <form action="{{route('storedata')}}" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                 @csrf
                 @include('datas._form',['botonNombre'=>'Guardar','botonFondo'=>'bg-blue-500','botonFondoHover'=> 'hover:bg-blue-700'])
-            </form>
-        </div>
+
     @endsection
+
+

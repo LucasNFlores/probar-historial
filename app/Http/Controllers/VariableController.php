@@ -15,10 +15,10 @@ class VariableController extends Controller
         ]);
     }
 
+
     public function store(StoreVariableRequest $request)
     {
         $validated = $request->validated();
-
         $variable = new Variable();
         $variable->name=$request['name'];
         $variable->measure=$request['measure'];
@@ -44,7 +44,6 @@ class VariableController extends Controller
     public function update(UpdateVariableRequest $request, int $id)
     {
         $validated = $request->validated();
-
         $variable = Variable::find($id);
         $variable -> name = $request -> name;
         $variable -> measure = $request -> measure;

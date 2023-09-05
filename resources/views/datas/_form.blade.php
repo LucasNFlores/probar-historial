@@ -10,6 +10,9 @@
     @error('name')
         <p class="text-red-500 text-xs italic">{{$message}}</p>
     @enderror
+
+
+
 </div>
 
 <div class="mb-4">
@@ -21,6 +24,24 @@
     @error('value')
         <p class="text-red-500 text-xs italic">{{$message}}</p>
     @enderror
+
+
+    <label class="block text-gray-700 text-sm font-bold mb-2 pt-3" for="{{$data->name}}">
+        Variable:
+    </label>
+        <select class="shadow appearance-none border @error('Variable') border-red-500 @enderror w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="{{$data->name}}">
+            {{-- @forelse ($datas as $data) --}}
+            <option value="{{$data->variable_id}}">
+            {{$data->id==$data->variable_id}}
+            {{$data->name}}</option>
+>
+            @error('Variable')
+            <p class="text-red-500 text-xs italic">{{$message}}</p>
+        @enderror
+        {{-- @empty --}}
+
+        <p>No se encontró el dato {{$data}}</p>
+            {{-- @endforelse --}}
 </div>
 
 

@@ -13,7 +13,16 @@ class DataController extends Controller
     public function index()
     {
         $datas = Data::all();
-        return view('datas.index', [
+        return view('datas.index',  [
+            'datas' => $datas
+        ]);
+    }
+
+
+    public function view()
+    {
+        $datas = Data::all();
+        return view('datas._show', [
             'datas' => $datas
         ]);
     }
@@ -32,6 +41,7 @@ class DataController extends Controller
         $data = new Data();
         $data->name=$request->name;
         $data->value=$request->value;
+        $data->variable_id=$request->variable_id;
         $data -> save();
         return redirect()->route('datas.index');
     }

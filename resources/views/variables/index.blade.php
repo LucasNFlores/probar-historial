@@ -32,7 +32,8 @@
                     <td class="text-center">
 
                         <form action="{{route('destroyvariable', $variable->id)}}" method="POST">
-                        <a href="{{route('createvariable')}}" title="Detalles" class="opacity-50 hover:opacity-100"><span class="material-icons cursor-pointer " >visibility</span></a>
+                            <a href="{{route('editvariable', $variable->id)}}">
+                                <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">visibility</span> </a>
                             @csrf
                             <a href="{{route('editvariable', $variable->id)}}">
                                 <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>

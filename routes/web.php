@@ -59,57 +59,39 @@ Route::delete('/hives/{hive}', [HivesController::class, 'destroy']) -> name('hiv
 
 
 //Dispositivos
-Route::get('/devices', [DeviceController::class, 'index']) -> name('devices.index');
 
-Route::get('/devices/nuevo', [DeviceController::class, 'create']) -> name('createdevice');
+Route::controller(DeviceController::class)->group(function() {
 
-Route::post('/devices', [DeviceController::class, 'store']) -> name('storedevice');
+    Route::get('/devices',              'index') -> name('devices.index');
+    Route::get('/devices/nuevo',         'create') -> name('createdevice');
+    Route::post('/devices',              'store') -> name('storedevice');
+    Route::get('/devices/{device}/edit', 'edit') -> name('editdevice');
+    Route::put('/devices/{device}',      'update') -> name('updatedevice');
+    Route::delete('/devices/{device}',   'destroy') -> name('destroydevice');
 
-Route::get('/devices/{device}/edit', [DeviceController::class, 'edit']) -> name('editdevice');
-
-Route::put('/devices/{device}', [DeviceController::class, 'update']) -> name('updatedevice');
-
-Route::delete('/devices/{device}', [DeviceController::class, 'destroy']) -> name('destroydevice');
-
+});
 
 //Variables
-/*
 Route::controller(VariableController::class)->group(function() {
-    Route::get('home',         'home')->name('home');
-    Route::get('edit',         'edit')->name('edit');
-    Route::get('create',  'create')->name('create');
 
-    Route::resource('variables', PostController::class);
-});*/
+    Route::get('/variables',                 'index')-> name('variables.index');
+    Route::get('/variables/nuevo',           'create')-> name('createvariable');
+    Route::post('/variables',                'store')-> name('storevariable');
+    Route::get('/variables/{variable}/edit', 'edit')-> name('editvariable');
+    Route::put('/variables/{variable}',      'update')-> name('updatevariable');
+    Route::delete('/variables/{variable}',    'destroy')-> name('destroyvariable');
 
+});
 
-Route::get('/variables', [VariableController::class, 'index']) -> name('variables.index');
+//Data
+Route::controller(DataController::class)->group(function() {
 
-Route::get('/variables/nuevo', [VariableController::class, 'create']) -> name('createvariable');
+    Route::get('/datas',                     'index')->name('datas.index');
+    Route::get('/datas/{variable}/edit',     'edit')->name('editdata');
+    Route::get('/datas/nuevo',               'create')->name('createdata');
+    Route::get('/datas/detalles',            'view')->name('datas.show');
+    Route::post('/datas',                    'store')->name('storedata');
+    Route::put('/datas/{variable}',          'update')->name('datas.update');
+    Route::delete('/datas/{variable}',       'destroy')->name('destroydata');
 
-Route::post('/variables', [VariableController::class, 'store']) -> name('storevariable');
-
-Route::get('/variables/{variable}/edit', [VariableController::class, 'edit']) -> name('editvariable');
-
-Route::put('/variables/{variable}', [VariableController::class, 'update']) -> name('updatevariable');
-
-Route::delete('/variables/{variable}', [VariableController::class, 'destroy']) -> name('destroyvariable');
-
-
-
-//rutas data
-
-Route::get('/datas', [DataController::class, 'index']) -> name('datas.index');
-
-Route::get('/datas/nuevo', [DataController::class, 'create']) -> name('createdata');
-
-Route::post('/datas', [DataController::class, 'store']) -> name('storedata');
-
-Route::get('/datas/{variable}/edit', [DataController::class, 'edit']) -> name('editdata');
-
-Route::put('/datas/{variable}', [DataController::class, 'update']) -> name('datas.update');
-
-Route::delete('/datas/{variable}', [DataController::class, 'destroy']) -> name('destroydata');
-
-
-
+});
