@@ -49,23 +49,17 @@
                                             title="Eliminar" type="submit" value="delete"
                                             onclick="return confirm('Está por eliminar el dato: {{ $data->name }}')">
 
-                                            <select class="w-full text-sm text-left text-gray-700 " name="{{$data->name}}"  >
-                                                  <option value="{{$data->variable_id}}">
-                                                    {{$data->id==$data->variable_id}}
-                                                    {{$data->name}}</option>
+
                                         </form>
                                 </td>
                             </tr>
                         @empty
-
                             <p>No se encontró el dato {{$data}}</p>
-
-
-
                         @endforelse
                     </tbody>
                 </table>
-                <div style="text-align:center;">
+                <br>
+                <div style="text-align:center;  py-2   ">
                     {{ $datas->links() }}
                 </div>
             </div>

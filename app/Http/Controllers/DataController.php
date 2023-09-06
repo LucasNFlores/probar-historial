@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDataRequest;
 use App\Http\Requests\UpdateDataRequest;
 use App\Models\Data;
+use App\Models\Variable;
 use Illuminate\Http\Request;
 //listo
 class DataController extends Controller
@@ -28,8 +29,9 @@ class DataController extends Controller
 
     public function create()
     {
-        $data= new Data();
-        return view('datas.create', compact('data'));
+        $data = new Data();
+        $variables = Variable::all();
+        return view('datas.create', compact('data', 'variables'));
     }
 
 
@@ -54,9 +56,8 @@ class DataController extends Controller
     public function edit(int $id)
     {
         $data = Data::find($id);
-
-       return view ('datas.edit', compact('data'));
-
+        $variables = Variable::all();
+        return view ('datas.edit', compact('data', 'variables'));
     }
 
     public function update(UpdateDataRequest $request, int $id)
