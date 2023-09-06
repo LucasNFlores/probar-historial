@@ -9,11 +9,12 @@ class VariableController extends Controller
 {
     public function index()
     {
-        $variables = Variable::all();
+        $variables = Variable::latest()->paginate(8);
         return view('variables.index', [
             'variables' => $variables
         ]);
     }
+
 
 
     public function store(StoreVariableRequest $request)
