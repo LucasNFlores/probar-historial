@@ -54,6 +54,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div style="text-align:center;">
+                    {{ $devices->links() }}
+                </div>
             </div>
         </div>
 

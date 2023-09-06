@@ -47,6 +47,9 @@
             @endforelse
             </tbody>
         </table>
+        <div style="text-align:center;">
+            {{ $variables->links() }}
+        </div>
     </div>
 </div>
 <!--/table Card-->

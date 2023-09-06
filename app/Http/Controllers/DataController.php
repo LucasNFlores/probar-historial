@@ -12,11 +12,9 @@ class DataController extends Controller
 
     public function index()
     {
-        $datas = Data::all();
-        return view('datas.index',  [
-            'datas' => $datas
-        ]);
-    }
+        $datas = Data::latest('created_at')->paginate(4);
+        return view('datas.index',compact('datas'));
+}
 
 
     public function view()

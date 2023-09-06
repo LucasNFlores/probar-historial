@@ -10,16 +10,9 @@ class DeviceController extends Controller
 {
     public function index()
     {
-        $devices = Device::all();
-        return view('devices.index', [
-            'devices' => $devices
-        ]);
+        $devices = Device::latest()->paginate(8);
+        return view('devices.index',compact('devices'));
     }
-
-
-
-    /* public function create(Device $device)
-    {return view('devices.create', compact('device'));}*/
 
 
 
@@ -64,6 +57,7 @@ class DeviceController extends Controller
         $device -> name = $request -> name;
         $device -> functionality = $request -> functionality;
         $device -> state = $request -> state;
+
 
         $device->save();
         return redirect()->route('devices.index');
