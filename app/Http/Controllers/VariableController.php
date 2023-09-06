@@ -10,10 +10,10 @@ class VariableController extends Controller
     public function index()
     {
         $variables = Variable::latest()->paginate(8);
-        return view('variables.index', [
-            'variables' => $variables
-        ]);
+        return view('variables.index',
+            compact('variables'));
     }
+
 
 
 
