@@ -30,9 +30,11 @@
         Variable:
     </label>
     <select class="shadow appearance-none border @error('Variable') border-red-500 @enderror w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="variable_id">
-        @foreach ($variables as $variable)
+        @forelse ($variables as $variable)
             <option value="{{ $variable->id }}">{{ $variable->name }}</option>
-        @endforeach
+        @empty
+        <p>No se encontró el dato {{$data}}</p>
+        @endforelse
     </select>
 
 
