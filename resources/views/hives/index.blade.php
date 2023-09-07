@@ -43,7 +43,7 @@
                             
                         @empty
 
-                            <p>No se encontró la colmena {{$hive}}</p>
+                            <p>No se encontró la colmena</p>
 
                         @endforelse
                     </tbody>
