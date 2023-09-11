@@ -50,6 +50,7 @@ Route::middleware('auth')->group(function () {
             Route::delete('{apiary}',   'destroy') -> name('apiaries.destroy');
         });
     });
+  
 
      //***********************Colmenas***************************** */
     //Agrupa la ruta
@@ -140,6 +141,8 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-require __DIR__.'/auth.php';
+
+    require __DIR__.'/auth.php';
 
 
+});

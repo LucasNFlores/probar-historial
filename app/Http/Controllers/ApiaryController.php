@@ -46,9 +46,9 @@ class ApiaryController extends Controller
      */
     public function show(string $id)
     {
-        $apiary = Apiary::find($id);
-
-        return view ('apiaries.show', compact('apiary'));
+        $apiary = Apiary::with('hives')->findOrFail($id);
+        $hives = $apiary->hives;
+        return view ('apiaries.show', compact('apiary', 'hives'));
     }
 
     /**

@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
 
           \App\Models\User::factory()->create([
-              'name' => 'Test User',
+              'name' => 'TestUser',
              'email' => 'testing@gmail.com',
              'password'=>'@123456',
           ]);
