@@ -7,6 +7,7 @@ use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
 use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,142 +15,129 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
 
-//Ruta que pasa los datos de las colmenas al tablero
-Route::get('/', [HivesController::class, 'dashboard']) -> name('dashboard');
+Route::get('/', [AuthenticatedSessionController::class, 'create'])
+->name('login');
 
-Route::get('/', [HivesController::class, 'dashboard'])
+Route::get('/dashboard', [HivesController::class, 'dashboard'])
  ->middleware(['auth', 'verified'])
  ->name('dashboard');
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/apiaries', [ApiaryController::class, 'index']) -> name('apiaries.index');
-    /*
-    |--------------------------------------------------------------------------
-    | RUTAS DE APLICACIÓN
-    |--------------------------------------------------------------------------
-    */
-
-    Route::get('/template', function () {
-        return view('template');
-    });
-    Route::get('/template2', function () {
-        return view('template2');
-    });
 
 
-    //Apiarios
-
-
-    Route::get('/apiaries/new', [ApiaryController::class, 'create']) -> name('apiaries.create');
-
-    Route::post('/apiaries', [ApiaryController::class, 'store']) -> name('apiaries.store');
-
-    Route::get('/apiaries/{apiary}/edit', [ApiaryController::class, 'edit']) -> name('apiaries.edit');
-
-    Route::get('/apiaries/{apiary}/', [ApiaryController::class, 'show']) -> name('apiaries.show');
-
-    Route::put('/apiaries/{apiary}', [ApiaryController::class, 'update']) -> name('apiaries.update');
-
-    Route::delete('/apiaries/{apiary}', [ApiaryController::class, 'destroy']) -> name('apiaries.destroy');
-
-
-    //Colmenas
-    Route::get('/hives', [HivesController::class, 'index']) -> name('hives.index');
-
-    Route::get('/hives/new', [HivesController::class, 'create']) -> name('hives.create');
-
-    Route::post('/hives', [HivesController::class, 'store']) -> name('hives.store');
-
-    Route::get('/hives/{hive}/edit', [HivesController::class, 'edit']) -> name('hives.edit');
-
-    Route::get('/hives/{hive}/', [ApiaryController::class, 'show']) -> name('hives.show');
-
-    Route::put('/hives/{hive}', [HivesController::class, 'update']) -> name('hives.update');
-
-    Route::delete('/hives/{hive}', [HivesController::class, 'destroy']) -> name('hives.destroy');
-
-
-
-    //Dispositivos
-
-    Route::controller(DeviceController::class)->group(function() {
-
-        Route::get('/devices',              'index') -> name('devices.index');
-        Route::get('/devices/nuevo',         'create') -> name('createdevice');
-        Route::post('/devices',              'store') -> name('storedevice');
-        Route::get('/devices/{device}/edit', 'edit') -> name('editdevice');
-        Route::put('/devices/{device}',      'update') -> name('updatedevice');
-        Route::delete('/devices/{device}',   'destroy') -> name('destroydevice');
-
+    //***********************Apiarios***************************** */
+    //Agrupa la ruta
+    Route::prefix('admin/apiaries/')->group(function () {
+        //Agrupa el controlador
+        Route::controller(ApiaryController::class)->group(function() {
+            //Listado
+            Route::get('',              'index') -> name('apiaries.index');
+             //Crear
+            Route::get('create',        'create') -> name('apiaries.create');
+            //Guardar
+            Route::post('',             'store') -> name('apiaries.store');
+            //Mostrar
+            Route::get('{apiary}',      'show') -> name('apiaries.show');
+             //Editar
+            Route::get('{apiary}/edit', 'edit') -> name('apiaries.edit');
+             //Actualizar
+            Route::put('{apiary}',      'update') -> name('apiaries.update');
+             //Eliminar
+            Route::delete('{apiary}',   'destroy') -> name('apiaries.destroy');
+        });
     });
 
-    //Variables
-    Route::controller(VariableController::class)->group(function() {
-
-        Route::get('/variables',                 'index')-> name('variables.index');
-        Route::get('/variables/nuevo',           'create')-> name('createvariable');
-        Route::post('/variables',                'store')-> name('storevariable');
-        Route::get('/variables/{variable}/edit', 'edit')-> name('editvariable');
-        Route::put('/variables/{variable}',      'update')-> name('updatevariable');
-        Route::delete('/variables/{variable}',    'destroy')-> name('destroyvariable');
-
+     //***********************Colmenas***************************** */
+    //Agrupa la ruta
+    Route::prefix('admin/hives/')->group(function () {
+        //Agrupa el controlador
+        Route::controller(HiveController::class)->group(function() {
+            //Listado
+            Route::get('',              'index') -> name('hives.index');
+             //Crear
+            Route::get('create',        'create') -> name('hives.create');
+            //Guardar
+            Route::post('',             'store') -> name('hives.store');
+            //Mostrar
+            Route::get('{hive}',      'show') -> name('hives.show');
+             //Editar
+            Route::get('{hive}/edit', 'edit') -> name('hives.edit');
+             //Actualizar
+            Route::put('{hive}',      'update') -> name('hives.update');
+             //Eliminar
+            Route::delete('{hive}',   'destroy') -> name('hives.destroy');
+        });
     });
 
-    //Data
-    Route::controller(DataController::class)->group(function() {
-
-        Route::get('/datas',                     'index')->name('datas.index');
-        Route::get('/datas/{variable}/edit',     'edit')->name('editdata');
-        Route::get('/datas/nuevo',               'create')->name('createdata');
-        Route::get('/datas/detalles',            'view')->name('datas.show');
-        Route::post('/datas',                    'store')->name('storedata');
-        Route::put('/datas/{variable}',          'update')->name('datas.update');
-        Route::delete('/datas/{variable}',       'destroy')->name('destroydata');
-
-<<<<<<< HEAD
-//Colmenas
-Route::get('/hives', [HivesController::class, 'index']) -> name('hives.index');
-
-Route::get('/hives/new', [HivesController::class, 'create']) -> name('hives.create');
-
-Route::post('/hives', [HivesController::class, 'store']) -> name('hives.store');
-
-Route::get('/hives/{hive}/edit', [HivesController::class, 'edit']) -> name('hives.edit');
-
-Route::get('/hives/{hive}/', [ApiaryController::class, 'show']) -> name('hives.show');
-
-Route::put('/hives/{hive}', [HivesController::class, 'update']) -> name('hives.update');
-
-Route::delete('/hives/{hive}', [HivesController::class, 'destroy']) -> name('hives.destroy');
-
-
-
-//Dispositivos
-
-Route::controller(DeviceController::class)->group(function() {
-
-    Route::get('/devices',              'index') -> name('devices.index');
-    Route::get('/devices/nuevo',         'create') -> name('createdevice');
-    Route::get('/devices/detalles',            'view')->name('devices.show');
-    Route::post('/devices',              'store') -> name('storedevice');
-    Route::get('/devices/{device}/edit', 'edit') -> name('editdevice');
-    Route::put('/devices/{device}',      'update') -> name('updatedevice');
-    Route::delete('/devices/{device}',   'destroy') -> name('destroydevice');
-
-=======
+    //***********************Dispositivos***************************** */
+    //Agrupa la ruta
+    Route::prefix('admin/devices/')->group(function () {
+        //Agrupa el controlador
+        Route::controller(DeviceController::class)->group(function() {
+            //Listado
+            Route::get('',              'index') -> name('devices.index');
+             //Crear
+            Route::get('create',        'create') -> name('devices.create');
+            //Guardar
+            Route::post('',             'store') -> name('devices.store');
+            //Mostrar
+            Route::get('{device}',      'show') -> name('devices.show');
+             //Editar
+            Route::get('{device}/edit', 'edit') -> name('devices.edit');
+             //Actualizar
+            Route::put('{device}',      'update') -> name('devices.update');
+             //Eliminar
+            Route::delete('{device}',   'destroy') -> name('devices.destroy');
+        });
     });
->>>>>>> 690e8ce53966bb5821a97229c38e387e1029e76b
+
+    //***********************Variables***************************** */
+    //Agrupa la ruta
+    Route::prefix('admin/variables/')->group(function () {
+        //Agrupa el controlador
+        Route::controller(VariableController::class)->group(function() {
+            //Listado
+            Route::get('',              'index') -> name('variables.index');
+             //Crear
+            Route::get('create',        'create') -> name('variables.create');
+            //Guardar
+            Route::post('',             'store') -> name('variables.store');
+            //Mostrar
+            Route::get('{variable}',      'show') -> name('variables.show');
+             //Editar
+            Route::get('{variable}/edit', 'edit') -> name('variables.edit');
+             //Actualizar
+            Route::put('{variable}',      'update') -> name('variables.update');
+             //Eliminar
+            Route::delete('{variable}',   'destroy') -> name('variables.destroy');
+        });
+    });
+
+    //***********************Datos***************************** */
+    //Agrupa la ruta
+    Route::prefix('admin/data/')->group(function () {
+        //Agrupa el controlador
+        Route::controller(DataController::class)->group(function() {
+            //Listado
+            Route::get('',              'index') -> name('data.index');
+             //Crear
+            Route::get('create',        'create') -> name('data.create');
+            //Guardar
+            Route::post('',             'store') -> name('data.store');
+            //Mostrar
+            Route::get('{data}',      'show') -> name('data.show');
+             //Editar
+            Route::get('{data}/edit', 'edit') -> name('data.edit');
+             //Actualizar
+            Route::put('{data}',      'update') -> name('data.update');
+             //Eliminar
+            Route::delete('{data}',   'destroy') -> name('data.destroy');
+        });
+    });
 });
 
 require __DIR__.'/auth.php';
