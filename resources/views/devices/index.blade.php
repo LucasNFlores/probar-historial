@@ -27,7 +27,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($devices as $device)
+                        @forelse ($devices as $device)
                             <tr>
                                 <th scope="row" class="text-center">{{ $device->id }}</th>
                                 <td class="text-center">{{ $device->name }}</td>
@@ -51,7 +51,9 @@
                                     </form>
                                 </td>
                             </tr>
-                        @endforeach
+                            @empty
+                            <p>no se encontrarón datos de dispositivos </p>
+                            @endforelse
                     </tbody>
                 </table>
                 <div style="text-align:center;">

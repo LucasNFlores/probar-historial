@@ -42,7 +42,7 @@
                         </td>
                     </form>
                     @empty
-                    <p>no se encontrarón variables</p>
+                    <p>no se encontrarón datos de variables</p>
                 </tr>
             @endforelse
             </tbody>

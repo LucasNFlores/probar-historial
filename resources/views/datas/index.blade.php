@@ -21,7 +21,6 @@
                     <thead class="">
                         <tr class="  border-transparent rounded-lg  ">
                             <th scope="col" class="px-6 py-3 text-center text-blue-900">Id</th>
-                            <th scope="col" class="px-6 py-3 text-center text-blue-900">Nombre </th>
                             <th scope="col" class="px-6 py-3 text-center text-blue-900">Valor </th>
                             <th scope="col" class="px-6 py-3  text-center  text-blue-900">Acciones</th>
 
@@ -31,7 +30,6 @@
                         @forelse ($datas as $data)
                             <tr>
                                 <th scope="row" class="text-center ">{{ $data->id }}</th>
-                                <td class="text-center ">{{ $data->name }}</td>
                                 <td class="text-center ">{{ $data->value }}</td>
                                 <td class="text-center">
                                     <form action="{{ route('destroydata', $data->id) }}" method="POST">
@@ -54,7 +52,7 @@
                                 </td>
                             </tr>
                         @empty
-                            <p>No se encontró el dato {{$data}}</p>
+                            <p>No se encontró el dato </p>
                         @endforelse
                     </tbody>
                 </table>

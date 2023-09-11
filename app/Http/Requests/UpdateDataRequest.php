@@ -22,7 +22,7 @@ class UpdateDataRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'value' => 'required'
     ];
     }
 }

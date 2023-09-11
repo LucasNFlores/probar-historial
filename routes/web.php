@@ -117,7 +117,39 @@ Route::middleware('auth')->group(function () {
         Route::put('/datas/{variable}',          'update')->name('datas.update');
         Route::delete('/datas/{variable}',       'destroy')->name('destroydata');
 
+<<<<<<< HEAD
+//Colmenas
+Route::get('/hives', [HivesController::class, 'index']) -> name('hives.index');
+
+Route::get('/hives/new', [HivesController::class, 'create']) -> name('hives.create');
+
+Route::post('/hives', [HivesController::class, 'store']) -> name('hives.store');
+
+Route::get('/hives/{hive}/edit', [HivesController::class, 'edit']) -> name('hives.edit');
+
+Route::get('/hives/{hive}/', [ApiaryController::class, 'show']) -> name('hives.show');
+
+Route::put('/hives/{hive}', [HivesController::class, 'update']) -> name('hives.update');
+
+Route::delete('/hives/{hive}', [HivesController::class, 'destroy']) -> name('hives.destroy');
+
+
+
+//Dispositivos
+
+Route::controller(DeviceController::class)->group(function() {
+
+    Route::get('/devices',              'index') -> name('devices.index');
+    Route::get('/devices/nuevo',         'create') -> name('createdevice');
+    Route::get('/devices/detalles',            'view')->name('devices.show');
+    Route::post('/devices',              'store') -> name('storedevice');
+    Route::get('/devices/{device}/edit', 'edit') -> name('editdevice');
+    Route::put('/devices/{device}',      'update') -> name('updatedevice');
+    Route::delete('/devices/{device}',   'destroy') -> name('destroydevice');
+
+=======
     });
+>>>>>>> 690e8ce53966bb5821a97229c38e387e1029e76b
 });
 
 require __DIR__.'/auth.php';
