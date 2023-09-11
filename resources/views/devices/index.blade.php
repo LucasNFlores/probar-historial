@@ -8,7 +8,7 @@
             <div
                 class=" bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex  justify-between   text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600 ">Listado </h2>
-                <a href="{{ route('createdevice') }}" class="opacity-50 hover:opacity-100  "><span
+                <a href="{{ route('devices.create') }}" class="opacity-50 hover:opacity-100  "><span
                         class="material-icons cursor-pointer " title="Agregar">add</span></a>
             </div>
 
@@ -35,13 +35,13 @@
                                 <td class="text-center">{{ $device->state }}</td>
 
                                 <td class="text-center ">
-                                    <form action="{{ route('destroydevice', $device->id) }}" method="POST">
-                                        <a href="{{ route('createdevice') }}" class="opacity-50 hover:opacity-100"><span
+                                    <form action="{{ route('devices.destroy', $device->id) }}" method="POST">
+                                        {{-- <a href="{{ route('devices.show') }}" class="opacity-50 hover:opacity-100"><span
                                                 class="material-icons cursor-pointer "
-                                                title="Detalles">visibility</span></a>
+                                                title="Detalles">visibility</span></a> --}}
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('editdevice', $device->id) }}">
+                                        <a href="{{ route('devices.edit', $device->id) }}">
                                             <span class="material-icons cursor-pointer opacity-50 hover:opacity-100"
                                                 title="Editar">edit</span> </a>
                                             <input
