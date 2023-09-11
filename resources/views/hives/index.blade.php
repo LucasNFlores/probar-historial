@@ -35,15 +35,13 @@
                                         @csrf
                                         @method('DELETE')
                                         <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')">
-            
-            
                                     </form>
                                 </td>
                             </tr>
                             
                         @empty
 
-                            <p>No se encontró la colmena</p>
+                            <p>No se encontraron datos de las colmenas</p>
 
                         @endforelse
                     </tbody>
