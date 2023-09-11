@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Hive;
+use App\Models\Apiary;
 use App\Http\Requests\StoreHiveRequest;
 use App\Http\Requests\UpdateHiveRequest;
+use Illuminate\Http\Request;
 
 class HivesController extends Controller
 {
@@ -31,21 +33,31 @@ class HivesController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        $hive = new Hive();
-        return view('hives.create', compact('hive'));
-    }
+    public function create(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'apiary_id' => 'required|exists:apiaries,id',
+    ]);
+
+    $hive = new Hive();
+    $apiaries = Apiary::all();
+    return view('hives.create', compact('hive', 'apiaries'));
+}
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreHiveRequest $request)
     {
+
         $validated = $request->validated();
+
         $hive = new Hive();
-        $hive->name=$request->name;
-        $hive -> save();
+        $hive->name = $request->name;
+        $hive->apiary_id = $request->apiary_id; // Asignar el apiary_id seleccionado
+        $hive->save();
+
         return redirect()->route('hives.index');
     }
 
