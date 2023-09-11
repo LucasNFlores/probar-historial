@@ -64,6 +64,7 @@ Route::controller(DeviceController::class)->group(function() {
 
     Route::get('/devices',              'index') -> name('devices.index');
     Route::get('/devices/nuevo',         'create') -> name('createdevice');
+    Route::get('/devices/detalles',            'view')->name('devices.show');
     Route::post('/devices',              'store') -> name('storedevice');
     Route::get('/devices/{device}/edit', 'edit') -> name('editdevice');
     Route::put('/devices/{device}',      'update') -> name('updatedevice');

@@ -10,7 +10,8 @@
                 'botonNombre' => 'Guardar',
                 'botonFondo' => 'bg-blue-500',
                 'botonFondoHover' => 'hover:bg-blue-700',
-                'variables' => $variables
+                'variables' => $variables,
+                'devices' => $devices
             ])
         </form>
     </div>

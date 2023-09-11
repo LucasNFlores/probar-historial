@@ -11,12 +11,11 @@ return new class extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
             $table->decimal('value', 12, 2);
             $table->timestamps();
         });
     }
-
+ 
     /**
      * Reverse the migrations.
      */
