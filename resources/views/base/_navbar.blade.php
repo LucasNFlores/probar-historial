@@ -28,7 +28,17 @@
                             <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fa fa-user fa-fw"></i> Mi Perfil</a>
                             <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fa fa-cog fa-fw"></i> Configuración</a>
                             <div class="border border-gray-800"></div>
-                            <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fas fa-sign-out-alt fa-fw"></i> Salir</a>
+                            {{-- <a href="{{route('logout')}}" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fas fa-sign-out-alt fa-fw"></i> Salir</a> --}}
+
+                            <form action="{{ route('logout')}}" method="POST">
+                                @csrf
+                                <i class="pr-6 fas fa-sign-out-alt fa-fw"></i>
+                                <input type="submit" value="Salir" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-500 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"></input>
+                                
+                                
+
+                            </form>
+
                         </div>
                     </div>
                 </li>

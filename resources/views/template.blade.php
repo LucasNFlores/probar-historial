@@ -21,7 +21,7 @@
     <title>@yield('title')</title>
 
 
-    @vite(['resources/css/app,css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
 <body class="bg-zinc-900 font-sans leading-normal tracking-normal mt-12">
