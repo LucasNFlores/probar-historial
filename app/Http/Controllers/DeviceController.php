@@ -46,8 +46,8 @@ class DeviceController extends Controller
     public function edit(int $id)
     {
         $device = Device::find($id);
-        $hives = Hive::all();
-       return view ('devices.edit', compact('device','$hives'));
+
+       return view ('devices.edit', compact('device'));
     }
 
     public function update(UpdateDeviceRequest $request, int $id)
