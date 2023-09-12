@@ -18,7 +18,7 @@ class DataController extends Controller
         return view('datas.index',compact('datas'));
 }
 
-    public function view()
+    public function show()
     {
         $datas = Data::all();
         return view('datas.show', [
@@ -43,7 +43,7 @@ class DataController extends Controller
         $data->variable_id=$request->variable_id;
 
         $data -> save();
-        return redirect()->route('datas.index');
+        return redirect()->route('data.index');
     }
 
     public function edit(int $id)
@@ -62,14 +62,14 @@ class DataController extends Controller
         $data -> device_id = $request -> device_id;
         $data -> variable_id = $request -> variable_id;
         $data->save();
-        return redirect()->route('datas.index');
+        return redirect()->route('data.index');
     }
 
     public function destroy(int $id)
     {
         $data = Data::find($id);
         $data -> delete();
-        return redirect() -> route('datas.index');
+        return redirect() -> route('data.index');
     }
 }
 

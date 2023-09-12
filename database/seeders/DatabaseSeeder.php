@@ -37,5 +37,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Device::factory(10)->create();
         \App\Models\Variable::factory(10)->create();
         \App\Models\Data::factory(10)->create();
+        \App\Models\Hive::factory(10)->create();
     }
 }

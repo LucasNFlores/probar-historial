@@ -15,7 +15,7 @@ class DeviceController extends Controller
         return view('devices.index',compact('devices'));
     }
 
-    public function view()
+    public function show()
     {
         $device = Device::all();
         return view('devices.show', [
@@ -25,7 +25,7 @@ class DeviceController extends Controller
 
     public function create()
     {   $device = new Device();
-        $hive=new Hive();
+        $hive=Hive::all();
         return view('devices.create',compact('device','hive'));
     }
 
@@ -46,8 +46,8 @@ class DeviceController extends Controller
     public function edit(int $id)
     {
         $device = Device::find($id);
-
-       return view ('devices.edit', compact('device'));
+        $hives=Hive::all();
+       return view ('devices.edit', compact('device','hives'));
     }
 
     public function update(UpdateDeviceRequest $request, int $id)
@@ -57,7 +57,7 @@ class DeviceController extends Controller
         $device -> name = $request -> name;
         $device -> functionality = $request -> functionality;
         $device -> state = $request -> state;
-
+        $device -> hive_id =$request -> hive_id;
         $device->save();
         return redirect()->route('devices.index');
     }

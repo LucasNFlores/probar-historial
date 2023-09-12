@@ -36,9 +36,9 @@
 
                                 <td class="text-center ">
                                     <form action="{{ route('devices.destroy', $device->id) }}" method="POST">
-                                        {{-- <a href="{{ route('devices.show') }}" class="opacity-50 hover:opacity-100"><span
+                                         <a href="{{ route('devices.show') }}" class="opacity-50 hover:opacity-100"><span
                                                 class="material-icons cursor-pointer "
-                                                title="Detalles">visibility</span></a> --}}
+                                                title="Detalles">visibility</span></a>
                                         @csrf
                                         @method('DELETE')
                                         <a href="{{ route('devices.edit', $device->id) }}">

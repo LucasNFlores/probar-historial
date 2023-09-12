@@ -85,7 +85,7 @@ Route::middleware('auth')->group(function () {
             //Guardar
             Route::post('',             'store') -> name('devices.store');
             //Mostrar
-            Route::get('{device}',      'show') -> name('devices.show');
+            Route::get('/show',      'show') -> name('devices.show');
              //Editar
             Route::get('{device}/edit', 'edit') -> name('devices.edit');
              //Actualizar
@@ -107,7 +107,7 @@ Route::middleware('auth')->group(function () {
             //Guardar
             Route::post('',             'store') -> name('variables.store');
             //Mostrar
-            Route::get('{variable}',      'show') -> name('variables.show');
+            Route::get('{/show',      'show') -> name('variables.show');
              //Editar
             Route::get('{variable}/edit', 'edit') -> name('variables.edit');
              //Actualizar
@@ -129,7 +129,7 @@ Route::middleware('auth')->group(function () {
             //Guardar
             Route::post('',             'store') -> name('data.store');
             //Mostrar
-            Route::get('{data}',      'show') -> name('data.show');
+            Route::get('/show',      'show') -> name('data.show');
              //Editar
             Route::get('{data}/edit', 'edit') -> name('data.edit');
              //Actualizar
