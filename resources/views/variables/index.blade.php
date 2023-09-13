@@ -6,7 +6,7 @@
         <div class="bg-white border-transparent rounded-lg shadow-xl">
             <div class=" bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex  justify-between   text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600 ">Listado  </h2>
-                <a href="{{route('createvariable')}}" class="opacity-50 hover:opacity-100  ">
+                <a href="{{route('variables.create')}}" class="opacity-50 hover:opacity-100  ">
                     <span class="material-icons cursor-pointer " title="Agregar">add</span></a>
             </div>
 
@@ -31,11 +31,11 @@
 
                     <td class="text-center">
 
-                        <form action="{{route('destroyvariable', $variable->id)}}" method="POST">
-                            <a href="{{route('editvariable', $variable->id)}}">
+                        <form action="{{route('variables.destroy', $variable->id)}}" method="POST">
+                            <a href="{{route('variables.show', $variable->id)}}">
                                 <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">visibility</span> </a>
                             @csrf
-                            <a href="{{route('editvariable', $variable->id)}}">
+                            <a href="{{route('variables.edit', $variable->id)}}">
                                 <span class=" text-center material-icons cursor-pointer opacity-50 hover:opacity-100 " title="Editar">edit</span> </a>
                             @method('DELETE')
                             <input class="box-content cursor-pointer opacity-50 hover:opacity-100   material-icons " type="submit" value="delete"  title="Eliminar" onclick="return confirm('Está por eliminar la variable: {{$variable->name}}')">

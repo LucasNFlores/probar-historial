@@ -10,7 +10,8 @@
             @include('devices._form',['botonNombre'=>'Guardar',
             'botonFondo'=>'bg-blue-500',
             'botonFondoHover'=> 'hover:bg-blue-700',
-            'device'=> $device
+            'devices'=> $device,
+            'hives' => $hive
             ])
         </form>
     </div>

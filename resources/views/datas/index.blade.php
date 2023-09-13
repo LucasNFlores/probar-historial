@@ -9,7 +9,7 @@
             <div
                 class=" bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex  justify-between   text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600 ">Listado </h2>
-                <a href="{{ route('createdata') }}" class="opacity-50 hover:opacity-100  ">
+                <a href="{{ route('data.create') }}" class="opacity-50 hover:opacity-100  ">
                     <span class="material-icons cursor-pointer " title="Agregar">add</span></a>
             </div>
 
@@ -32,13 +32,13 @@
                                 <th scope="row" class="text-center ">{{ $data->id }}</th>
                                 <td class="text-center ">{{ $data->value }}</td>
                                 <td class="text-center">
-                                    <form action="{{ route('destroydata', $data->id) }}" method="POST">
-                                        <a href="{{ route('datas.show') }}" class="opacity-50 hover:opacity-100"><span
+                                    <form action="{{ route('data.destroy', $data->id) }}" method="POST">
+                                        <a href="{{ route('data.show') }}" class="opacity-50 hover:opacity-100"><span
                                                 title="Detalles"
                                                 class="material-icons cursor-pointer ">visibility</span></a>
                                         @csrf
                                         @method('DELETE')
-                                        <a href="{{ route('editdata', $data->id) }}">
+                                        <a href="{{ route('data.edit', $data->id) }}">
                                             <span title="Editar"
                                                 class="material-icons opacity-50 hover:opacity-100 cursor-pointer  ">edit</span>
                                         </a>

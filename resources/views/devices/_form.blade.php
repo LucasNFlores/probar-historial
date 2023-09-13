@@ -33,6 +33,15 @@ id="state" type="number"  value="{{old('state',$device->state)}}">
 @enderror
 </div>
 
+<label class="block text-gray-700 text-sm font-bold mb-2 pt-3" for="hive_id">Colmenas:</label>
+<select name="hive_id" class="shadow appearance-none border @error('hive') border-red-500 @enderror w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+    @forelse ($hives as $hive)
+        <option value="{{ $hive->id }}">{{ $hive->name }}</option>
+        @empty
+        <p>No se encontró el dato de Colmena</p>
+        @endforelse
+</select>
+
 <div class="flex items-center justify-between">
     <button type="submit" class="{{$botonFondo}} {{$botonFondoHover}} text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
         {{$botonNombre}}

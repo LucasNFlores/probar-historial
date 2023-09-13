@@ -26,9 +26,12 @@ class VariableController extends Controller
         $variable -> save();
         return redirect()->route('variables.index');
     }
-    public function show(int $id)
+    public function show()
     {
-
+        $variables = Variable::all();
+        return view('variables.show', [
+            'variables' => $variables
+        ]);
     }
 
     public function edit(int $id)
