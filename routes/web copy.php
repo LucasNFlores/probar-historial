@@ -95,7 +95,6 @@ Route::get('/dashboard', [HivesController::class, 'dashboard'])
             });
         });
 
-
         //***********************Variables***************************** */
         //Agrupa la ruta
         Route::prefix('admin/variables/')->group(function () {
@@ -116,9 +115,7 @@ Route::get('/dashboard', [HivesController::class, 'dashboard'])
                 //Eliminar
                 Route::delete('{variable}',   'destroy') -> name('variables.destroy');
             });
-
         });
-
 
         //***********************Datos***************************** */
         //Agrupa la ruta
@@ -140,9 +137,9 @@ Route::get('/dashboard', [HivesController::class, 'dashboard'])
                 //Eliminar
                 Route::delete('{data}',   'destroy') -> name('data.destroy');
             });
-
         });
     });
 
+require __DIR__.'/auth.php';
 
-    require __DIR__.'/auth.php';
+
