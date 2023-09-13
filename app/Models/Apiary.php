@@ -22,8 +22,11 @@ class Apiary extends Model
     /**
     * Se recupera todas las colmenas del apiario
     */
+
     public function hives(): HasMany
     {
         return $this->hasMany(Hive::class);
     }
+
+    
 }
