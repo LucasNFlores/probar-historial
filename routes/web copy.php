@@ -140,5 +140,6 @@ Route::get('/dashboard', [HivesController::class, 'dashboard'])
         });
     });
 
+require __DIR__.'/auth.php';
 
-    require __DIR__.'/auth.php';
+
