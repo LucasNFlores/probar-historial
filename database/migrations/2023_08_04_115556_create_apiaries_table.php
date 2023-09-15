@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('apiaries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('location');
+            $table->decimal('latitude', $precision = 8, $scale = 6);//-27.382718,
+            $table->decimal('longitude', $precision = 8, $scale = 6);//-55.903950
             $table->timestamps();
         });
     }

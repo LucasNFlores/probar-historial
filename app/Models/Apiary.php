@@ -11,6 +11,8 @@ class Apiary extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['name','location','latitude','longitude'];
+
     /**
     * Se recupera el usuario
     */
@@ -28,5 +30,5 @@ class Apiary extends Model
         return $this->hasMany(Hive::class);
     }
 
-    
+
 }
