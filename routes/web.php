@@ -1,11 +1,12 @@
 <?php
-
+//Rutas de los controladores
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ApiaryController;
-use App\Http\Controllers\HivesController;
+use App\Http\Controllers\HiveController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
 use App\Http\Controllers\DataController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
@@ -19,7 +20,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 Route::get('/', [AuthenticatedSessionController::class, 'create'])
 ->name('login');
 
-Route::get('/dashboard', [HivesController::class, 'dashboard'])
+Route::get('/dashboard', [HiveController::class, 'dashboard'])
  ->middleware(['auth', 'verified'])
  ->name('dashboard');
 

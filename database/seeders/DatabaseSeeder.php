@@ -14,9 +14,9 @@ class DatabaseSeeder extends Seeder
     {
 
           \App\Models\User::factory()->create([
-              'name' => 'TestUser',
-             'email' => 'testing@gmail.com',
-             'password'=>'@123456',
+             'name' => 'demo',
+             'email' => 'demo@gmail.com',
+             'password'=>'demo',
           ]);
           \App\Models\User::factory()->create([
             'name' => 'Dario',
@@ -38,5 +38,8 @@ class DatabaseSeeder extends Seeder
         \App\Models\Variable::factory(10)->create();
         \App\Models\Data::factory(10)->create();
         \App\Models\Hive::factory(10)->create();
+
+        //Se ejecuta el seeder de apiario
+        $this->call([ApiaryTableSeeder::class]);
     }
 }

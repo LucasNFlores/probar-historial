@@ -9,7 +9,7 @@ use App\Http\Requests\StoreHiveRequest;
 use App\Http\Requests\UpdateHiveRequest;
 use Illuminate\Http\Request;
 
-class HivesController extends Controller
+class HiveController extends Controller
 {
     /**
      * Display a listing of the resource.
