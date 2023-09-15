@@ -1,9 +1,9 @@
-<nav aria-label="menu nav" class=" bg-gradient-to-r from-orange-600 to-orange-600 md:pt-2 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0 border-solid border-b-0 border-white  ">
+<nav aria-label="menu nav" class=" bg-gradient-to-r from-orange-500 to-orange-500 md:pt-2 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0 border-solid border-b-0 border-white  ">
     <div class="flex flex-wrap items-center  ">
 
-        <div class=" flex flex-shrink md:w-1/3 justify-center md:justify-start text-white pl-2 ">
-            <a href="{{route('dashboard')}}" aria-label="Home">
-                <img src="{{ asset('favicon.ico') }}" alt="Icon" class="icon-size  ">
+        <div class=" flex flex-shrink md:w-1/3 justify-center md:justify-start text-white pl-0">
+            <a href="{{route('dashboard')}}" aria-label="Home" >
+                <img src="{{ asset('favicon.ico') }}" alt="Icon" class="icon-size   ">
             </a>
         </div>
 

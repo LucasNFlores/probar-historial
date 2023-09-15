@@ -1,7 +1,7 @@
 
         <div class="flex flex-col md:flex-row  ">
-            <nav aria-label="alternative nav  " class="bg-gradient-to-r from-orange-600 to-orange-600 ">
-                <div class="bg-gradient-to-r from-orange-600 to-orange-600 h-20 fixed bottom-0 pt-8 md:relative md:h-screen z-10 w-full md:w-48 content-center  ">
+            <nav aria-label="alternative nav  " class="bg-gradient-to-r from-orange-500 to-orange-500 ">
+                <div class="bg-gradient-to-r from-orange-500 to-orange-500 h-20 fixed bottom-0 pt-8 md:relative md:h-screen z-10 w-full md:w-48 content-center  ">
                     <div class=" md:mt-12 md:w-48 md:fixed md:left-0 md:top-0 content-center md:content-start text-left justify-between">
                         <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left ">
                             <li class="mr-3 flex-1">

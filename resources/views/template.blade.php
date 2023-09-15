@@ -38,9 +38,9 @@
             <div id="main" class=" main-content flex-1 bg-white mt-12 md:mt-2 pb-24 md:pb-5">
 
                 <!--Encabezado de pizarron-->
-               <div class="  pt-3 bg-orange-600">
+               <div class="  pt-3 bg-orange-500">
                    <div
-                       class="rounded-tl-3xl bg-gradient-to-r from-organge-300 to-orange-600 p-4 shadow text-2xl text-white">
+                       class="rounded-tl-3xl bg-gradient-to-r from-organge-300 to-orange-500 p-4 shadow text-2xl text-white">
                        <h1 class="font-bold pl-2">@yield('title')</h1>
                    </div>
                </div>
