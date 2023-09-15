@@ -35,9 +35,9 @@ class ApiaryController extends Controller
     public function store(StoreApiaryRequest $request)
     {
         $validated = $request->validated();
-        $apiary = new Apiary();
-        $apiary->name=$request->name;
+        $apiary = Apiary::create($validated);
         $apiary -> save();
+
         return redirect()->route('apiaries.index');
     }
 
@@ -46,9 +46,9 @@ class ApiaryController extends Controller
      */
     public function show(string $id)
     {
-        $apiary = Apiary::find($id);
-
-        return view ('apiaries.show', compact('apiary'));
+        $apiary = Apiary::with('hives')->findOrFail($id);
+        $hives = $apiary->hives;
+        return view ('apiaries.show', compact('apiary', 'hives'));
     }
 
     /**
@@ -70,8 +70,9 @@ class ApiaryController extends Controller
         $validated = $request->validated();
 
         $apiary = Apiary::find($id);
-        $apiary -> name = $request -> name;
+        $apiary->fill($validated);
         $apiary->save();
+        
         return redirect()->route('apiaries.index');
     }
 

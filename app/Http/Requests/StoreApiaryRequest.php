@@ -22,7 +22,10 @@ class StoreApiaryRequest extends FormRequest
     public function rules(): array
     {
         return [
-                'name' => 'required'
+                'name' => 'required',
+                'location' => '',
+                'latitude' => '',
+                'longitude' => ''
         ];
     }
 }

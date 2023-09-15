@@ -14,6 +14,9 @@ class Hive extends Model
     /**
     * Se recupera el apiario
     */
+
+    protected $fillable = ['name', 'apiary_id'];
+
     public function apiary(): BelongsTo
     {
         return $this->belongsTo(Apiary::class);
