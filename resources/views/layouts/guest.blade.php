@@ -14,15 +14,26 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <body class="font-sans text-gray-900 antialiased overflow-hidden">
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg ">
+ <!-- Video del Fondo
+    https://create.vista.com/es/videos/abeja/?page=2
+https://cdn.create.vista.com/api/media/medium/314558378/stock-video-bee-close-bees-bee-hive-swarm-bees?token
+-->
+            <video class="-z-50 min-w-full min-h-full max-w-none" src=
+"https://cdn.create.vista.com/api/media/small/398717534/stock-video-bees-defend-themselves-insects-other-colonies-alien-insects-penetrate-hive"
+            autoplay="{true}" loop muted>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        </video>
+
+
+
+            <div class="absolute z-0 w-full sm:max-w-md mt-6 px-6 py-4 bg-white bg-opacity-75 shadow-md overflow-hidden sm:rounded-lg">
+                <div class="flex flex-col sm:justify-center items-center ">
+                    <a href="/">
+                        <x-application-logo class="z-0 w-20 h-20 fill-current text-gray-500" />
+                    </a>
+                </div>
                 {{ $slot }}
             </div>
         </div>
