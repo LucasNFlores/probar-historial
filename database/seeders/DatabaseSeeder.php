@@ -33,6 +33,11 @@ class DatabaseSeeder extends Seeder
            'email' => 'db@gmail.com',
            'password'=>'@augusto_2023',
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Mauricio',
+            'email' => 'mauricio@gmail.com',
+            'password'=>'mauricio'
+        ]);
 
         \App\Models\Device::factory(10)->create();
         \App\Models\Variable::factory(10)->create();

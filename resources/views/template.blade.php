@@ -24,23 +24,24 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 </head>
-<body class="bg-zinc-900 font-sans leading-normal tracking-normal mt-12">
+<body class=" bg-gradient-to-r from-gray-800 to-purple-300 font-sans leading-normal tracking-normal mt-12">
     <!--Se incluye la barra de navegacion -->
-    <header>
+    <header >
         @include('base._navbar')
     </header>
 
     <main>
-        <div class="flex flex-col md:flex-row">
+        <div class="flex flex-col md:flex-row ">
             @include('base._sidebar')
 
             <!--Pizzarron-->
-            <div id="main" class="main-content flex-1 bg-gray-200 mt-12 md:mt-2 pb-24 md:pb-5">
+
+            <div id="main" class=" main-content flex-1 bg-white mt-12 md:mt-2 pb-24 md:pb-5">
 
                 <!--Encabezado de pizarron-->
-               <div class="bg-zinc-900 pt-3">
+               <div class="  pt-3 bg-orange-500">
                    <div
-                       class="rounded-tl-3xl bg-gradient-to-r from-orange-600 to-zinc-700 p-4 shadow text-2xl text-white">
+                       class="rounded-tl-3xl bg-gradient-to-r from-organge-300 to-orange-500 p-4 shadow text-2xl text-white">
                        <h1 class="font-bold pl-2">@yield('title')</h1>
                    </div>
                </div>
