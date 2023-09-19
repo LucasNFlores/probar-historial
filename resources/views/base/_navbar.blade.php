@@ -22,7 +22,7 @@
             <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
                 <li class="flex-1 md:flex-none md:mr-3">
                     <div class="relative inline-block">
-                        <button onclick="toggleDD('myDropdown')" class="flex items-center justify-between drop-button text-white py-2 px-2"><span class="material-symbols-outlined pr-2">account_circle</span> Usuario <svg class="pl-2 h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <button onclick="toggleDD('myDropdown')" class="flex items-center justify-between drop-button text-white py-2 px-2"><span class="material-symbols-outlined pr-2">account_circle</span> {{auth() -> user() -> name }} <svg class="pl-2 h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg></button>
                         <div id="myDropdown" class="dropdownlist absolute bg-orange-500 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible  rounded-lg">
                             <a href="#" class="flex items-center p-2 hover:bg-gradient-to-r from-orange-300 to-transparent rounded-lg text-white text-sm no-underline hover:no-underline block"><i class="pr-6 fa fa-user fa-fw"></i> Mi Perfil</a>
