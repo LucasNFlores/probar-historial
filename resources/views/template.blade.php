@@ -35,6 +35,7 @@
             @include('base._sidebar')
 
             <!--Pizzarron-->
+
             <div id="main" class=" main-content flex-1 bg-white mt-12 md:mt-2 pb-24 md:pb-5">
 
                 <!--Encabezado de pizarron-->
