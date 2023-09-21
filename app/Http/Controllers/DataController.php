@@ -18,13 +18,16 @@ class DataController extends Controller
         return view('datas.index',compact('datas'));
 }
 
-    public function show()
-    {
-        $datas = Data::all();
-        return view('datas.show', [
-            'datas' => $datas
-        ]);
-    }
+public function show(int $id)
+{
+    $datas = Data::with('variable', 'device')->findOrFail($id);
+    // Carga las relaciones "variable" y "device"
+    $variable = $datas->variable; // Accede a la relación "variable"
+
+    $device = $datas->device; // Accede a la relación "device"
+
+    return view('datas.show', compact('datas', 'variable', 'device')); // Pasa las variables a la vista
+}
 
     public function create()
     {
@@ -37,10 +40,7 @@ class DataController extends Controller
     public function store(StoreDataRequest $request)
     {
         $validated = $request->validated();
-        $data = new Data();
-        $data->value=$request->value;
-        $data->device_id=$request->device_id;
-        $data->variable_id=$request->variable_id;
+        $data=Data::create($validated);
 
         $data -> save();
         return redirect()->route('data.index');
@@ -58,9 +58,7 @@ class DataController extends Controller
     {
         $validated = $request->validated();
         $data = Data::find($id);
-        $data -> value = $request -> value;
-        $data -> device_id = $request -> device_id;
-        $data -> variable_id = $request -> variable_id;
+        $data->fill($validated);
         $data->save();
         return redirect()->route('data.index');
     }

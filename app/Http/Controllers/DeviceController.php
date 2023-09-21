@@ -15,12 +15,13 @@ class DeviceController extends Controller
         return view('devices.index',compact('devices'));
     }
 
-    public function show()
+    public function show(string $id)
     {
-        $device = Device::all();
-        return view('devices.show', [
-            'devices' => $device
-        ]);
+        $devices = Device::with('hive')->findOrFail($id);
+        $hive=$devices->hive;
+        return view('devices.show', compact('devices','hive')
+
+        );
     }
 
     public function create()
@@ -32,14 +33,10 @@ class DeviceController extends Controller
     public function store(StoreDeviceRequest $request)
     {
         $validated = $request->validated();
-        $request -> name;
-        $device = new Device();
-        $device->name=$request['name'];
-        $device->functionality=$request['functionality'];
-        $device->state=$request['state'];
-        $device->hive_id=$request->hive_id;
+        $device=Device::create($validated);
         $device -> save();
         return redirect()->route('devices.index');
+      //  $device->hive_id=$request->hive_id;
     }
 
 
@@ -54,10 +51,7 @@ class DeviceController extends Controller
     {
         $validated = $request->validated();
         $device = Device::find($id);
-        $device -> name = $request -> name;
-        $device -> functionality = $request -> functionality;
-        $device -> state = $request -> state;
-        $device -> hive_id =$request -> hive_id;
+        $device->fill($validated);
         $device->save();
         return redirect()->route('devices.index');
     }
