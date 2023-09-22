@@ -24,6 +24,12 @@ class VariableTable extends DataTableComponent
                 ->sortable(),
             Column::make("Measure", "measure")
                 ->sortable(),
+                Column::make('Actions')
+                ->label(
+                function ($row, Column $column) {
+                    return view('variables.action',['variable'=>$row]);
+                }
+            )
         ];
     }
 }
