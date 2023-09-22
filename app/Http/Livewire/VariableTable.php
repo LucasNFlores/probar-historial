@@ -14,7 +14,7 @@ class VariableTable extends DataTableComponent
     {
         $this->setPrimaryKey('id');
     }
-
+// sd
     public function columns(): array
     {
         return [
