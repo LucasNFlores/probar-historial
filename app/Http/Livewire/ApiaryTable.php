@@ -28,10 +28,16 @@ class ApiaryTable extends DataTableComponent
                 ->sortable(),
             Column::make("Longitude", "longitude")
                 ->sortable(),
-            Column::make("Created at", "created_at")
-                ->sortable(),
-            Column::make("Updated at", "updated_at")
-                ->sortable(),
+            // Column::make('Actions')
+            //     ->format(function ($value, $column, $row) {
+            //         return view('apiaries.apiary.action', ['apiary' => $row]);
+            //     })
+            Column::make('Actions')
+                ->label(
+                function ($row, Column $column) {
+                    return view('apiaries.action',['apiary'=>$row]);
+                }
+            )
         ];
     }
 }
