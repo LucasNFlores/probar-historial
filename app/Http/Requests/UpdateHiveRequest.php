@@ -22,7 +22,8 @@ class UpdateHiveRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required'
+            'name' => 'required',
+            'apiary_id' => 'required|exists:apiaries,id',
     ];
     }
 }
