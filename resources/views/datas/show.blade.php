@@ -128,6 +128,7 @@
 
                 <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                     <thead class="text-blue-900">
+                        @forelse ($datas as $data)
                         <tr>
                             <th data-priority="1">Dato</th>
                             <th data-priority="2">Valor</th>
@@ -139,19 +140,19 @@
                     <tbody class="text-center">
 
                         <tr>
-                            <td>{{ $datas->id }}</td>
-                            <td>{{ $datas->value }}</td>
-                            <td>{{ $datas->device_id }}</td>
-                            <td>{{ $datas->variable_id }}</td>
+                            <td>{{ $data->id }}</td>
+                            <td>{{ $data->value }}</td>
+                            <td>{{ $data->device_id }}</td>
+                            <td>{{ $data->variable_id }}</td>
 
                         </tr>
 
 
+                        @empty
 
+                            <p>No se encontró el dato </p>
 
-
-
-
+                        @endforelse
                     </tbody>
 
                 </table>
