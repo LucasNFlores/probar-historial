@@ -33,13 +33,9 @@ class HiveController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
+    public function create()
 {
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'apiary_id' => 'required|exists:apiaries,id',
-    ]);
-
+   
     $hive = new Hive();
     $apiaries = Apiary::all();
     return view('hives.create', compact('hive', 'apiaries'));
@@ -52,10 +48,7 @@ class HiveController extends Controller
     {
 
         $validated = $request->validated();
-
-        $hive = new Hive();
-        $hive->name = $request->name;
-        $hive->apiary_id = $request->apiary_id; // Asignar el apiary_id seleccionado
+        $hive = Hive::create($validated);
         $hive->save();
 
         return redirect()->route('hives.index');
@@ -77,8 +70,9 @@ class HiveController extends Controller
     public function edit(string $id)
     {
         $hive = Hive::find($id);
+        $apiaries = Apiary::all();    
 
-       return view ('hives.edit', compact('hive')); #Genera de forma automatica lo que hace el array asociativo
+       return view ('hives.edit', compact('hive', 'apiaries')); #Genera de forma automatica lo que hace el array asociativo
 
     }
 
@@ -90,7 +84,7 @@ class HiveController extends Controller
         $validated = $request->validated();
 
         $hive = Hive::find($id);
-        $hive -> name = $request -> name;
+        $hive -> fill($validated);
         $hive->save();
         return redirect()->route('hives.index');
     }
