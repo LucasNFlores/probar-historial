@@ -137,21 +137,21 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        @forelse ($datas as $data)
+
                         <tr>
-                            <td>{{ $data->id }}</td>
-                            <td>{{ $data->value }}</td>
-                            <td>{{ $data->device_id }}</td>
-                            <td>{{ $data->variable_id }}</td>
+                            <td>{{ $datas->id }}</td>
+                            <td>{{ $datas->value }}</td>
+                            <td>{{ $datas->device_id }}</td>
+                            <td>{{ $datas->variable_id }}</td>
 
                         </tr>
 
 
-                        @empty
 
-                            <p>No se encontró el dato </p>
 
-                        @endforelse
+
+
+
                     </tbody>
 
                 </table>

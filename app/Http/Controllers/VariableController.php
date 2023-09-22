@@ -20,9 +20,7 @@ class VariableController extends Controller
     public function store(StoreVariableRequest $request)
     {
         $validated = $request->validated();
-        $variable = new Variable();
-        $variable->name=$request['name'];
-        $variable->measure=$request['measure'];
+        $variable=Variable::create($validated);
         $variable -> save();
         return redirect()->route('variables.index');
     }
@@ -49,8 +47,7 @@ class VariableController extends Controller
     {
         $validated = $request->validated();
         $variable = Variable::find($id);
-        $variable -> name = $request -> name;
-        $variable -> measure = $request -> measure;
+        $variable->fill($validated);
         $variable->save();
         return redirect()->route('variables.index');
     }
