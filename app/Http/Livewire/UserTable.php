@@ -5,8 +5,6 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
 
-
-
 class UserTable extends DataTableComponent
 {
     protected $model = User::class;
