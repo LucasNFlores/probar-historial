@@ -12,7 +12,7 @@
                     </div>
                     <div class="flex-1 text-right md:text-center">
                         <h2 class="font-bold uppercase text-gray-600">TOTAL DE APIARIOS</h2>
-                        <p class="font-bold text-3xl">54</p>
+                        <p class="font-bold text-3xl">{{$apiariesCount}}</p>
                     </div>
                 </div>
             </div>
@@ -27,13 +27,13 @@
                     </div>
                     <div class="flex-1 text-right md:text-center">
                         <h2 class="font-bold uppercase text-gray-600">TOTAL DE COLMENAS</h2>
-                        <p class="font-bold text-3xl">385</p>
+                        <p class="font-bold text-3xl">{{$hivesCount}}</p>
                     </div>
                 </div>
             </div>
             <!--/Metric Card-->
         </div>
-        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+        {{-- <div class="w-full md:w-1/2 xl:w-1/3 p-6">
             <!--Metric Card-->
             <div class="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-500 rounded-lg shadow-xl p-5">
                 <div class="flex flex-row items-center">
@@ -48,7 +48,7 @@
                 </div>
             </div>
             <!--/Metric Card-->
-        </div>
+        </div> --}}
     </div>
 
 
