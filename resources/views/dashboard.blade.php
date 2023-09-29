@@ -54,14 +54,20 @@
 
     <div class="flex flex-row flex-wrap flex-grow mt-2">
 
-        @foreach ($hives as $hive)
-            <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-                <div class="bg-white border-transparent rounded-lg shadow-xl">
+        @foreach ($userApiaries as $apiary)
+            
+            @foreach ($apiary->hives as $hive )
 
-                    <x-cardHive name="{{ $hive->name }}" temp="18ºC" humd="60%" pres="900pa" peso="54" />
-                    <!--/Advert Card-->
+                <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+                    <div class="bg-white border-transparent rounded-lg shadow-xl">
+
+                        <x-cardHive name="{{ $hive->name }}" temp="18ºC" humd="60%" pres="900pa" peso="54" />
+
+                    </div>
                 </div>
-            </div>
+
+            @endforeach
+
         @endforeach
 
     </div>
