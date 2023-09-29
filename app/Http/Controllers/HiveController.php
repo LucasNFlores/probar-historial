@@ -24,9 +24,21 @@ class HiveController extends Controller
 
     public function dashboard()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
     {
+        $id = auth()->user()->id;
+        $apiariesCount = Apiary::where('user_id',$id)->count();
+
+        $hivesCount = 0;
+        $userApiaries = Apiary::where('user_id',$id)->get();
+        foreach ($userApiaries as $apiary){
+            $hivesCount = $hivesCount + $apiary->hives()->count();
+        }
+
         $hives = Hive::all();
+
         return view('dashboard', [
-            'hives' => $hives
+            'hives' => $hives,
+            'apiariesCount'=> $apiariesCount,
+            'hivesCount'=> $hivesCount
         ]); #Array asociativo
     }
 
@@ -35,7 +47,7 @@ class HiveController extends Controller
      */
     public function create()
 {
-   
+
     $hive = new Hive();
     $apiaries = Apiary::all();
     return view('hives.create', compact('hive', 'apiaries'));
@@ -70,7 +82,7 @@ class HiveController extends Controller
     public function edit(string $id)
     {
         $hive = Hive::find($id);
-        $apiaries = Apiary::all();    
+        $apiaries = Apiary::all();
 
        return view ('hives.edit', compact('hive', 'apiaries')); #Genera de forma automatica lo que hace el array asociativo
 
