@@ -6,6 +6,7 @@ use App\Http\Controllers\HiveController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\VariableController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\UserController;
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
@@ -143,6 +144,28 @@ Route::get('/dashboard', [HiveController::class, 'dashboard'])
             });
 
         });
+
+        Route::prefix('admin/user/')->group(function () {
+            //Agrupa el controlador
+            Route::controller(UserController::class)->group(function() {
+                //Listado
+                Route::get('index',              'index') -> name('user.index');
+                //Crear
+                Route::get('create',        'create') -> name('user.create');
+                //Guardar
+                Route::post('',             'store') -> name('user.store');
+                //Mostrar
+                Route::get('{user}',      'show') -> name('user.show');
+                //Editar
+                Route::get('{user}/edit', 'edit') -> name('user.edit');
+                //Actualizar
+                Route::put('{user}',      'update') -> name('user.update');
+                //Eliminar
+                Route::delete('{user}',   'destroy') -> name('user.destroy');
+            });
+
+        });
+
     });
 
 
