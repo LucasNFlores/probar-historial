@@ -33,10 +33,10 @@ class HiveController extends Controller
             $hivesCount = $hivesCount + $apiary->hives()->count();
         }
 
-        $hives = Hive::all();
+
 
         return view('dashboard', [
-            'hives' => $hives,
+            'userApiaries' => $userApiaries ,
             'apiariesCount'=> $apiariesCount,
             'hivesCount'=> $hivesCount
         ]); #Array asociativo
