@@ -138,22 +138,19 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        @forelse ($devices as $device)
+
                         <tr>
-                            <td>{{ $device->id }}</td>
-                            <td>{{ $device->name }}</td>
-                            <td>{{ $device->functionality }}</td>
-                            <td>{{ $device->state }}</td>
-                            <td>{{ $device->hive_id }}</td>
+                            <td>{{ $devices->id }}</td>
+                            <td>{{ $devices->name }}</td>
+                            <td>{{ $devices->functionality }}</td>
+                            <td>{{ $devices->state }}</td>
+                            <td>{{ $devices->hive_id }}</td>
 
                         </tr>
 
 
-                        @empty
 
-                            <p>No se encontró el dato </p>
 
-                        @endforelse
                     </tbody>
 
                 </table>

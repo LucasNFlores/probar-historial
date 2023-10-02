@@ -11,19 +11,21 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::latest('created_at')->paginate(8);
-        return view('users.index',compact('users'));
+        $users = User::latest()->paginate(8);
+        return view('users.index',
+            compact('users'));
 }
 
-public function show(int $id)
+public function show()
 {
-    $users = User::all('user')->findOrFail($id);
+    $users = User::all();
+    return view('users.show', [
+        'users' => $users
 
 
 
-    return view('users.show', compact('users')); // Pasa las users a la vista
+    ]);
 }
-
     public function create()
     {
         $user = new User();
@@ -37,7 +39,7 @@ public function show(int $id)
         $user=User::create($validated);
 
         $user -> save();
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
     public function edit(int $id)
@@ -53,14 +55,14 @@ public function show(int $id)
         $user = User::find($id);
         $user->fill($validated);
         $user->save();
-        return redirect()->route('user.index');
+        return redirect()->route('users.index');
     }
 
     public function destroy(int $id)
     {
         $user = User::find($id);
         $user -> delete();
-        return redirect() -> route('user.index');
+        return redirect() -> route('users.index');
     }
 }
 

@@ -128,13 +128,14 @@
 
                 <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                     <thead class="text-blue-900">
-                        @forelse ($users as $user)
+
                         <tr>
                             <th user-priority="1">Id</th>
                             <th user-priority="2">Nombre</th>
                             <th user-priority="3">Email</th>
+                            <th user-priority="3">Password</th>
                             <th user-priority="4">Role</th>
-
+                            @forelse ($users as $user)
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -144,7 +145,7 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->password }}</td>
-                            <td>{{ $user->roles }}</td>
+
                         </tr>
 
 

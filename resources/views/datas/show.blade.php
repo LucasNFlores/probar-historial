@@ -128,7 +128,7 @@
 
                 <table id="example" class="stripe hover" style="width:100%; padding-top: 1em;  padding-bottom: 1em;">
                     <thead class="text-blue-900">
-                        @forelse ($datas as $data)
+
                         <tr>
                             <th data-priority="1">Dato</th>
                             <th data-priority="2">Valor</th>
@@ -148,11 +148,6 @@
                         </tr>
 
 
-                        @empty
-
-                            <p>No se encontró el dato </p>
-
-                        @endforelse
                     </tbody>
 
                 </table>
