@@ -149,19 +149,19 @@ Route::get('/dashboard', [HiveController::class, 'dashboard'])
             //Agrupa el controlador
             Route::controller(UserController::class)->group(function() {
                 //Listado
-                Route::get('index',              'index') -> name('user.index');
+                Route::get('index',              'index') -> name('users.index');
                 //Crear
-                Route::get('create',        'create') -> name('user.create');
+                Route::get('create',        'create') -> name('users.create');
                 //Guardar
-                Route::post('',             'store') -> name('user.store');
+                Route::post('',             'store') -> name('users.store');
                 //Mostrar
-                Route::get('{user}',      'show') -> name('user.show');
+                Route::get('{user}',      'show') -> name('users.show');
                 //Editar
-                Route::get('{user}/edit', 'edit') -> name('user.edit');
+                Route::get('{user}/edit', 'edit') -> name('users.edit');
                 //Actualizar
-                Route::put('{user}',      'update') -> name('user.update');
+                Route::put('{user}',      'update') -> name('users.update');
                 //Eliminar
-                Route::delete('{user}',   'destroy') -> name('user.destroy');
+                Route::delete('{user}',   'destroy') -> name('users.destroy');
             });
 
         });

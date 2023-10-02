@@ -1,11 +1,11 @@
 <div class="d-flex justify-content-start">
-    <form action="{{ route('user.destroy', $user->id) }}" method="POST">
-        <a href="{{ route('user.show', $user->id) }}" class="opacity-50 hover:opacity-100"><span
+    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+        <a href="{{ route('users.show', $user->id) }}" class="opacity-50 hover:opacity-100"><span
                 title="Detalles"
                 class="material-icons cursor-pointer ">visibility</span></a>
         @csrf
         @method('DELETE')
-        <a href="{{ route('user.edit', $user->id) }}">
+        <a href="{{ route('users.edit', $user->id) }}">
             <span title="Editar"
                 class="material-icons opacity-50 hover:opacity-100 cursor-pointer  ">edit</span>
         </a>

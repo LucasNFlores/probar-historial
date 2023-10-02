@@ -5,11 +5,9 @@ use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 use App\Models\User;
 
-use Livewire\Component;
-
 class UserTable extends DataTableComponent
 {
-    protected $model = Variable::class;
+    protected $model = User::class;
 
     public function configure(): void
     {
@@ -19,6 +17,8 @@ class UserTable extends DataTableComponent
     public function columns(): array
     {
         return [
+            Column::make("Id", "id")
+            ->sortable(),
             Column::make("Name", "name")
                 ->sortable(),
             Column::make("Password", "password")

@@ -20,13 +20,13 @@ class DataController extends Controller
 
 public function show(int $id)
 {
-    $datas = Data::with('variable', 'device')->findOrFail($id);
+    $data = Data::with('variable', 'device')->findOrFail($id);
     // Carga las relaciones "variable" y "device"
-    $variable = $datas->variable; // Accede a la relación "variable"
+    $variable = $data->variable; // Accede a la relación "variable"
 
-    $device = $datas->device; // Accede a la relación "device"
+    $device = $data->device; // Accede a la relación "device"
 
-    return view('datas.show', compact('datas', 'variable', 'device')); // Pasa las variables a la vista
+    return view('datas.show', compact('data', 'variable', 'device')); // Pasa las variables a la vista
 }
 
     public function create()
