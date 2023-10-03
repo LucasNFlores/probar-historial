@@ -106,9 +106,8 @@ class HiveController extends Controller
      */
     public function destroy(string $id)
     {
-        //
         $hive = Hive::find($id);
-        $hive -> delete();
-        return redirect() -> route('hives.index');
+        $hive->delete();
+        return redirect()->route('hives.index')->with('success', 'Colmena eliminada exitosamente.');
     }
 }
