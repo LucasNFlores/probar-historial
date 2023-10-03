@@ -9,3 +9,4 @@
 ### Modelo de tabla: https://www.tailwindtoolbox.com/components/responsive-table
 ### Modelo de formulario: https://tailwindui.com/components/application-ui/forms/form-layouts
 ### Componente para las tablas Livewire: https://rappasoft.com/docs/laravel-livewire-tables/v2/introduction
+### Modal de Confirmación: https://tailwindcomponents.com/component/modal-window
