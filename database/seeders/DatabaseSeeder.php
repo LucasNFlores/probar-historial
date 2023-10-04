@@ -50,5 +50,10 @@ class DatabaseSeeder extends Seeder
            'email' => 'mauricio@gmail.com',
            'password'=>'mauricio'
        ])->assignRole('Admin');
+       \App\Models\User::factory()->create([
+        'name' => 'Lucas',
+        'email' => 'Lucas@gmail.com',
+        'password'=>'lucas'
+    ])->assignRole('Admin');
     }
 }
