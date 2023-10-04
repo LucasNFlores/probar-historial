@@ -28,28 +28,28 @@ class PermissionTableSeeder extends Seeder
         Permission::create(['name'=>'profile.update'])->assignRole($RoleAdmin);
         Permission::create(['name'=>'profile.destroy'])->assignRole($RoleAdmin);
 
-        Permission::create(['name'=>'apiaries.index'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'apiaries.create'])->assignRole($RoleAdmin);
+        Permission::create(['name'=>'apiaries.index'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'apiaries.create'])->syncRoles([$RoleAdmin,$RoleUser]);
 
         Permission::create(['name'=>'apiaries.show'])->syncRoles([$RoleAdmin, $RoleUser]);
-        Permission::create(['name'=>'apiaries.edit'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'apiaries.update'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'apiaries.destroy'])->assignRole($RoleAdmin);
+        Permission::create(['name'=>'apiaries.edit'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'apiaries.update'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'apiaries.destroy'])->syncRoles([$RoleAdmin,$RoleUser]);
 
-        Permission::create(['name'=>'hives.index'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'hives.create'])->assignRole($RoleAdmin);
+        Permission::create(['name'=>'hives.index'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'hives.create'])->syncRoles([$RoleAdmin,$RoleUser]);
 
-        Permission::create(['name'=>'hives.show'])->syncRoles([$RoleAdmin, $RoleUser]);
-        Permission::create(['name'=>'hives.edit'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'hives.update'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'hives.destroy'])->assignRole($RoleAdmin);
+        Permission::create(['name'=>'hives.show'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'hives.edit'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'hives.update'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'hives.destroy'])->syncRoles([$RoleAdmin,$RoleUser]);
 
-        Permission::create(['name'=>'devices.index'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'devices.create'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'devices.show'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'devices.edit'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'devices.update'])->assignRole($RoleAdmin);
-        Permission::create(['name'=>'devices.destroy'])->assignRole($RoleAdmin);
+        Permission::create(['name'=>'devices.index'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'devices.create'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'devices.show'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'devices.edit'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'devices.update'])->syncRoles([$RoleAdmin,$RoleUser]);
+        Permission::create(['name'=>'devices.destroy'])->syncRoles([$RoleAdmin,$RoleUser]);
 
         Permission::create(['name'=>'variables.index'])->assignRole($RoleAdmin);
         Permission::create(['name'=>'variables.create'])->assignRole($RoleAdmin);
