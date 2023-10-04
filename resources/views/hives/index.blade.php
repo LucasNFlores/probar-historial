@@ -2,6 +2,8 @@
 
     @section('title', 'Colmenas')
     @section('content')
+    @include('modal.modalComponent')
+
 
     <div class="  p-6">
         <!--Table Card-->
@@ -34,7 +36,10 @@
                                         <a class="box-content" href="{{route('hives.edit', $hive->id)}}"><span class="material-icons cursor-pointer opacity-50 hover:opacity-100" title="Editar">edit</span></a>
                                         @csrf
                                         @method('DELETE')
-                                        <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')">
+                                        {{-- <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')"> --}}
+                                        <button type="button" @click="modal = true">Eliminar</button>
+
+                                        
                                     </form>
                                 </td>
                             </tr>
@@ -44,6 +49,7 @@
                             <p>No se encontraron datos de las colmenas</p>
 
                         @endforelse
+                        
                     </tbody>
                 </table>
             </div>
@@ -51,3 +57,5 @@
         <!--/table Card-->
 
     @endsection
+
+    
