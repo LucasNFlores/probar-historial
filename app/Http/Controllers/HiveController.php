@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Hive;
 use App\Models\Apiary;
+use App\Models\User;
 use App\Http\Requests\StoreHiveRequest;
 use App\Http\Requests\UpdateHiveRequest;
 use Illuminate\Http\Request;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 class HiveController extends Controller
 {
     /**
@@ -24,23 +27,58 @@ class HiveController extends Controller
 
     public function dashboard()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
     {
-        $id = auth()->user()->id;
-        $apiariesCount = Apiary::where('user_id',$id)->count();
+    //dd(auth()->user()::class::hasRole('Admin'));
+    //dd(auth()->user()->roles->pluck('name')->first()); for else preguntar
+            $user = auth()->user();
+            //se recupera el user autenticado y traemos todos los roles y pasamos de coleccion a array
+            $arrayRoles = auth()->user()->roles->pluck('name')->toArray();
 
-        $hivesCount = 0;
-        $userApiaries = Apiary::where('user_id',$id)->get();
-        foreach ($userApiaries as $apiary){
-            $hivesCount = $hivesCount + $apiary->hives()->count();
+            $apiariesCount = 0;
+            $hivesCount = 0;
+            $userApiaries = [];
+
+            if (in_array('User', $arrayRoles)) {
+                $id = $user->id;
+                $apiariesCount = Apiary::where('user_id', $id)->count();
+                $userApiaries = Apiary::where('user_id', $id)->get();
+
+                foreach ($userApiaries as $apiary) {
+                    $hives = $apiary->hives;
+
+                    if ($hives instanceof \Illuminate\Support\Collection) {
+                        // Si hives es una colección, incrementa el contador
+                        $hivesCount += $hives->count();
+                    } elseif (is_int($hives)) {
+                        // Si hives es un entero, úsalo directamente
+                        $hivesCount += $hives;
+                    }
+                }
+            } elseif (in_array('Admin', $arrayRoles)) {
+                // Contar todos
+                $apiariesCount = Apiary::count();
+                $hivesCount = Hive::count();
+            }
+
+            return view('dashboard', [
+                'userApiaries' => $userApiaries,
+                'apiariesCount' => $apiariesCount,
+                'hivesCount' => $hivesCount
+            ]);
         }
 
 
+        //para que Ulises y Lucas tengan como estaba antes
+        // public function dashboard()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
+        // {
+        //     $id = auth()->user()->id;
+        //     $apiariesCount = Apiary::where('user_id',$id)->count();
 
-        return view('dashboard', [
-            'userApiaries' => $userApiaries ,
-            'apiariesCount'=> $apiariesCount,
-            'hivesCount'=> $hivesCount
-        ]); #Array asociativo
-    }
+        //     $hivesCount = 0;
+        //     $userApiaries = Apiary::where('user_id',$id)->get();
+        //     foreach ($userApiaries as $apiary){
+        //         $hivesCount = $hivesCount + $apiary->hives()->count();
+        //     }
+
 
     /**
      * Show the form for creating a new resource.

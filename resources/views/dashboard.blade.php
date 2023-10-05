@@ -49,13 +49,30 @@
             </div>
             <!--/Metric Card-->
         </div> --}}
+
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+            <!--Metric Card-->
+            <div class="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-500   shadow-xl p-5">
+                <div class="flex flex-row items-center">
+                    <div class="flex-shrink pr-4">
+                        <div class="rounded-full p-5 bg-red-600"><i class="fa-solid fa-microchip fas   fa-2x fa-inverse"></i></div>
+                    </div>
+                    <div class="flex-1 text-right md:text-center">
+                        <h2 class="font-bold uppercase text-gray-600">TOTAL DE DISPOSITIVOS</h2>
+                        <p class="font-bold text-3xl">{{$hivesCount}}</p>
+                    </div>
+                </div>
+            </div>
+
+
+
     </div>
 
 
     <div class="flex flex-row flex-wrap flex-grow mt-2">
 
         @foreach ($userApiaries as $apiary)
-            
+
             @foreach ($apiary->hives as $hive )
 
                 <div class="w-full md:w-1/2 xl:w-1/3 p-6">

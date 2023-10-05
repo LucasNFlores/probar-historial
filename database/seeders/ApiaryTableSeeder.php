@@ -16,16 +16,28 @@ class ApiaryTableSeeder extends Seeder
     public function run(): void
     {
         //Demo
-        //apiario 1 
-        Apiary::factory()->create([
-            'name' => 'Apiario 1',
-            'user_id' => '1',
-            'location' => '-capiovi km 13',
-            'latitude' => '-27.382718',
-            'longitude' => '-55.903950',
-            'created_at' => now(),
-            'updated_at' => now(),
-         ]);
+        //apiario 1
+//         Apiary::factory()->create([
+//             'name' => 'Apiario 1',
+//             'user_id' => '14',
+//             'location' => '-capiovi km 13',
+//             'latitude' => '-27.382718',
+//             'longitude' => '-55.903950',
+//             'created_at' => now(),
+//             'updated_at' => now(),
+//          ]);
+//          Apiary::factory()->create([
+//             'name' => 'Apiario 2',
+//             'user_id' => '11',
+//             'location' => '-capiovi km 13',
+//             'latitude' => '-27.382718',
+//             'longitude' => '-55.903950',
+//             'created_at' => now(),
+//             'updated_at' => now(),
+//          ]);
 
-    }
-}
+
+//     }
+// }
+ }
+ }
