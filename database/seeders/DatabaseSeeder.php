@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\Variable::factory(10)->create();
         \App\Models\Data::factory(10)->create();
         \App\Models\Hive::factory(10)->create();
+       // \App\Models\Apiary::factory(10)->create();
         //Se ejecuta el seeder de apiario
         $this->call([ApiaryTableSeeder::class]);
         //Se ejecuta el seeder de Roles y permisos
@@ -55,5 +56,11 @@ class DatabaseSeeder extends Seeder
         'email' => 'Lucas@gmail.com',
         'password'=>'lucas'
     ])->assignRole('Admin');
+
+    \App\Models\User::factory()->create([
+        'name' => 'prueba',
+        'email' => 'prueba@gmail.com',
+        'password'=>'lucas'
+    ])->assignRole('Admin' , 'User');
     }
 }
