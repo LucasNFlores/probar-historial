@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Hive;
 use App\Models\Apiary;
 use App\Models\User;
+use App\Models\Device;
 use App\Http\Requests\StoreHiveRequest;
 use App\Http\Requests\UpdateHiveRequest;
 use Illuminate\Http\Request;
@@ -33,17 +34,33 @@ class HiveController extends Controller
             //se recupera el user autenticado y traemos todos los roles y pasamos de coleccion a array
             $arrayRoles = auth()->user()->roles->pluck('name')->toArray();
 
+            $userCount = 0;
+            $deviceCount = 0;
             $apiariesCount = 0;
             $hivesCount = 0;
             $userApiaries = [];
+
+             // Obtener todos los dispositivos una vez, antes del bucle
+            $devices = Device::all();
 
             if (in_array('User', $arrayRoles)) {
                 $id = $user->id;
                 $apiariesCount = Apiary::where('user_id', $id)->count();
                 $userApiaries = Apiary::where('user_id', $id)->get();
 
+
                 foreach ($userApiaries as $apiary) {
                     $hives = $apiary->hives;
+
+                // Iterar sobre los dispositivos y comparar con los hives
+                foreach ($devices as $device) {
+                    foreach ($hives as $hive) {
+                        if ($device->hive_id == $hive->id) {
+                            // Si hay coincidencia, incrementar el contador
+                            $deviceCount++;
+                        }
+                    }
+                }
 
                     if ($hives instanceof \Illuminate\Support\Collection) {
                         // Si hives es una colección, incrementa el contador
@@ -57,15 +74,18 @@ class HiveController extends Controller
                 // Contar todos
                 $apiariesCount = Apiary::count();
                 $hivesCount = Hive::count();
+                $userCount = User::count();
+                $deviceCount = Device::count();
             }
 
             return view('dashboard', [
                 'userApiaries' => $userApiaries,
                 'apiariesCount' => $apiariesCount,
-                'hivesCount' => $hivesCount
+                'hivesCount' => $hivesCount,
+                'userCount' => $userCount,
+                'deviceCount' => $deviceCount,
             ]);
         }
-
 
         //para que Ulises y Lucas tengan como estaba antes
         // public function dashboard()                             #EN CADA METODO REVISAR QUE ESTEN BIEN LAS RUTAS
@@ -79,10 +99,6 @@ class HiveController extends Controller
         //         $hivesCount = $hivesCount + $apiary->hives()->count();
         //     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
 {
 
