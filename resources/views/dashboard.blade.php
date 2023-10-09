@@ -1,9 +1,11 @@
 @extends('template')
 @section('title', 'Tablero')
 @section('content')
-    <div class="flex flex-wrap  ">
+
+     <div class="flex flex-wrap ">
 
         <!--Estadisticas tarjetas-->
+        @if(auth()->user()->can('users.index'))
         <div class="w-full md:w-1/2 xl:w-1/3 p-6   hover:scale-105 transition-transform duration-300 transform origin-center hover:cursor-pointer">
             <a href="{{route('users.index')}}">
             <!--Metric Card-->
@@ -21,6 +23,7 @@
             <!--/Metric Card-->
         </a>
         </div>
+        @endif
 
         <div class="w-full md:w-1/2 xl:w-1/3 p-6 hover:scale-105 transition-transform duration-300 transform origin-center hover:cursor-pointer">
             <!--Metric Card-->
@@ -129,7 +132,7 @@
     </div>
 
 
-    <div class="flex flex-row flex-wrap flex-grow mt-2">
+    <div class="flex flex-row flex-wrap flex-grow mt-2 w-full">
 
         @foreach ($userApiaries as $apiary)
 
