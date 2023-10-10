@@ -31,7 +31,7 @@
             apiary-value="{{$apiary->latitude}}"
             placeholder="Ej. -23.545678"
         />
-        <x-field-set-label-input /> {{--comentario--}}
+        <x-field-set-label-input   {{--comentario--}}
             class="sm:col-span-3"
             label-name="Longitud"
             name="longitude"
