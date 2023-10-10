@@ -18,7 +18,7 @@
                     </thead>
                     <tbody>
                         @forelse ($hives as $hive)
-                            <tr>
+                            <tr wire:key="{{ $hive->id }}">
                                 <th class="text-center" scope="row">{{ $hive->id }}</th>
                                 <td class="text-center">{{ $hive->name }}</td>
                                 <td class="flex items-center justify-center space-x-2">
@@ -28,7 +28,7 @@
                                         @csrf
                                         @method('DELETE')
                                     </form>
-                                    <div><button x-on:click="showModal = true; itemId = {{ $hive->id }}" class="text-red-600 hover:text-red-900">Eliminar</button></div>
+                                    <div><button x-on:click="showModal = true; itemId = {{ $hive->id }}" class="text-red-600 hover:text-red-900">Eliminar {{$hive->id}}</button></div>
                                     
                                 </td>
                             </tr>
@@ -52,10 +52,10 @@
                     <p class="text-sm text-gray-500 mb-4 text-center">Está por eliminar esta colmena.</p>
 
                     <div class="flex justify-center mt-4">
-                        <form id="delete-form" x-bind:action="'{{ route('hives.destroy', $hive->id) }}' + itemId" method="POST">
+                        <form id="delete-form" x-bind:action="'{{ route('hives.destroy', '') }}' + itemId" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" id="confirm-button" class="px-4 py-2 mr-6 bg-red-600 text-white rounded hover:bg-red-500">Confirmar</button>
+                            <button type="submit" wire:click="deleteItem({{ $hive->id }})" id="confirm-button" class="px-4 py-2 mr-6 bg-red-600 text-white rounded hover:bg-red-500">Confirmar {{$hive->id}}</button>
                         </form>
                         <button id="cancel-button" x-on:click="showModal = false" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Cancelar</button>
                     </div>
