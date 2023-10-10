@@ -19,6 +19,19 @@
 @enderror
 </div>
 
+<div class="mb-4">
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="roles">
+        Roles:
+    </label>
+    <select name="roles[]" multiple class="w-full">
+        @foreach($roles as $role)
+            <option value="{{ $role->name }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>
+                {{ $role->name }}
+            </option>
+        @endforeach
+    </select>
+</div>
+
 <div class="flex items-center justify-between">
     <button type="submit" class="{{$botonFondo}} {{$botonFondoHover}} text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
         {{$botonNombre}}
@@ -27,3 +40,4 @@
         Cancelar
     </a>
 </div>
+
