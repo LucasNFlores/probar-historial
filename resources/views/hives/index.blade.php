@@ -3,9 +3,8 @@
     @section('title', 'Colmenas')
     @section('content')
         @include('modal.modalComponent')
-
-
-        {{-- <div class="  p-6">
+        <div class="  p-6">
+{{-- 
             <!--Table Card-->
             <div class="bg-white border-transparent rounded-lg shadow-xl">
                 <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex justify-between text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
@@ -37,10 +36,17 @@
                                             @csrf
                                             @method('DELETE')
                                             {{-- <input class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" type="submit" value="delete" onclick="return confirm('Está por eliminar la colmena: {{$hive->name}}')"> --}}
-                                            {{-- <button x-on:click="showModal = true; itemId = {{ $hive->id }}" class="text-red-600 hover:text-red-900">Eliminar</button>
                                             
                                             
-                                        </form>
+                                        {{-- </form> --}}
+                                        {{-- {{-- <button wire:click="confirmDelete({{ $hive->id }})" class="btn btn-danger">Eliminar</button>  --}}
+                                        {{-- <button wire:click="$set('showModal', true)" id ="{{$hive->id}}">Eliminar </button>
+                                        @if ($showModal)
+                                            <livewire:confirm-delete-modal/>
+                                        @endif
+                                            
+                                        
+                                        
                                     </td>
                                 </tr>
                                 
@@ -52,10 +58,12 @@
                             
                         </tbody>
                     </table>
+                    
                 </div>
             </div> --}}
+        
             <!--/table Card-->
-
+        
     @endsection
 
     
