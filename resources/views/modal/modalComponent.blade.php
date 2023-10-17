@@ -1,7 +1,9 @@
-<div x-data="{ showModal: false }">
+<div x-data="{ showModal: false }" style="display: none">
     <!-- Tu tabla aquí -->
     <div class="p-6">
-        <!--Table Card-->
+        
+        <div class="pt-4">
+             <!--Table Card-->
         <div class="bg-white border-transparent rounded-lg shadow-xl">
             <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase flex justify-between text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600" flex-shrink-0>Listado</h2>
@@ -30,7 +32,7 @@
                                         <input id="B-{{$hive->id}}" class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" style="width: 0px;" type="submit" value="delete">
                                     </form>
 
-                                        <button itemId ="{{ $hive->id }}" class="delete-button text-red-600 hover:text-red-900 de">Eliminar</button>
+                                        <button itemId ="{{ $hive->id }}" class="delete-button mb-2"><i class="fas fa-trash opacity-50 hover:opacity-100"></i></button>
 
 
                                 </td>
@@ -143,3 +145,16 @@
 }
 
 </style>
+        </div>
+
+
+
+
+
+{{-- ----------------------------------------------------------------------------------------------------------------------------------------------- --}}
+
+
+
+
+
+       
