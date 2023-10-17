@@ -1,4 +1,4 @@
-<div x-data="{ showModal: false, itemId: null }">
+<div x-data="{ showModal: false }">
     <!-- Tu tabla aquí -->
     <div class="p-6">
         <!--Table Card-->
@@ -18,7 +18,7 @@
                     </thead>
                     <tbody>
                         @forelse ($hives as $hive)
-                            <tr wire:key="{{ $hive->id }}">
+                            <tr wire:key="{{ $hive->id }}" id="{{$hive->id}}">
                                 <th class="text-center" scope="row">{{ $hive->id }}</th>
                                 <td class="text-center">{{ $hive->name }}</td>
                                 <td class="flex items-center justify-center space-x-2">
@@ -27,9 +27,12 @@
                                     <form action="{{ route('hives.destroy', $hive->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
+                                        <input id="B-{{$hive->id}}" class="box-content cursor-pointer material-icons opacity-50 hover:opacity-100" style="width: 0px;" type="submit" value="delete">
                                     </form>
-                                    <div><button x-on:click="showModal = true; itemId = {{ $hive->id }}" class="text-red-600 hover:text-red-900">Eliminar {{$hive->id}}</button></div>
-                                    
+
+                                        <button itemId ="{{ $hive->id }}" class="delete-button text-red-600 hover:text-red-900 de">Eliminar</button>
+
+
                                 </td>
                             </tr>
                         @empty
@@ -42,56 +45,101 @@
             </div>
         </div>
 
-        <!-- Modal -->
-        <div x-show="showModal" class="fixed inset-0 flex items-center justify-center z-50">
-            <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
-
-            <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-                <div class="modal-content py-4 text-left px-6">
-                    <h1 class="text-3xl font-bold mb-4 text-center">¡Atención!</h1>
-                    <p class="text-sm text-gray-500 mb-4 text-center">Está por eliminar esta colmena.</p>
-
-                    <div class="flex justify-center mt-4">
-                        <form id="delete-form" x-bind:action="'{{ route('hives.destroy', '') }}' + itemId" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" wire:click="deleteItem({{ $hive->id }})" id="confirm-button" class="px-4 py-2 mr-6 bg-red-600 text-white rounded hover:bg-red-500">Confirmar {{$hive->id}}</button>
-                        </form>
-                        <button id="cancel-button" x-on:click="showModal = false" class="px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Cancelar</button>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 <script>
-    function deleteItem(itemId) {
-        fetch(`/hives/${itemId}`, {
-            method: 'DELETE',
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(response => {
-            if (response.ok) {
-                // Lógica para manejar la eliminación en la interfaz de usuario
-                const rowToDelete = document.getElementById(`row-${itemId}`);
-                if (rowToDelete) {
-                    rowToDelete.remove();
-                }
-                // Cierra el modal después de manejar la eliminación, usando Alpine.js
-                Alpine.store('showModal', false);
-            } else {
-                console.error('Error al eliminar el elemento.');
-                // Manejar el error, mostrar un mensaje al usuario, etc.
-            }
-        })
-        .catch(error => {
-            console.error('Error al eliminar el elemento:', error);
-            // Manejar el error, mostrar un mensaje al usuario, etc.
+    document.addEventListener("DOMContentLoaded", function() {
+    const deleteButtons = document.querySelectorAll('.delete-button');
+
+    deleteButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const id = button.getAttribute('itemId');
+
+            // Crear el overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'overlay';
+
+            // Crear el modal y establecer su contenido con el ID correspondiente
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <h1 class="text-3xl font-bold mb-4 text-center">¡Atención!</h1>
+                    <p class="text-sm text-gray-500 mb-4 text-center">Está por eliminar la colmena con ID: ${id}</p>
+                    <div class="flex justify-center mt-4">
+                        <button class="confirm-button px-4 py-2 mr-6 bg-red-600 text-white rounded hover:bg-red-500">Confirmar</button>
+                        <button class="cancel-button px-4 py-2 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Cancelar</button>
+                    </div>
+                </div>
+            `;
+
+            // Agregar el overlay y el modal al cuerpo del documento
+            document.body.appendChild(overlay);
+            document.body.appendChild(modal);
+
+            // Obtener los botones de confirmar y cancelar dentro del modal
+            const confirmButton = modal.querySelector('.confirm-button');
+            const cancelButton = modal.querySelector('.cancel-button');
+
+            // Agregar manejadores de eventos para los botones de confirmar y cancelar
+            confirmButton.addEventListener('click', function() {
+                // Lógica para confirmar la eliminación (puedes enviar una solicitud AJAX aquí)
+                console.log('Eliminando la colmena con ID: ' + id);
+
+                const confirmDelete = document.getElementById(`B-${id}`)
+                confirmDelete.click()
+                // Cerrar el modal y el overlay
+                closeModal(modal, overlay);
+            });
+
+            cancelButton.addEventListener('click', function() {
+                // Cerrar el modal y el overlay si se hace clic en Cancelar
+                closeModal(modal, overlay);
+            });
         });
+    });
+
+    // Función para cerrar el modal y el overlay
+    function closeModal(modal, overlay) {
+        document.body.removeChild(modal);
+        document.body.removeChild(overlay);
     }
-</script>
+});
+
+    </script>
+
+<style>
+    /* Estilo para el overlay de fondo */
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color de fondo oscuro con opacidad */
+    z-index: 100; /* Z-index alto para colocar el overlay encima de todo */
+}
+
+/* Estilo para el modal */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 101    ; /* Z-index más alto para colocar el modal encima del overlay */
+    max-width: 80%; /* Máximo ancho del modal */
+    text-align: center;
+}
+
+</style>
