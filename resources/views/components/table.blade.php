@@ -20,11 +20,11 @@
                         </tr>
                     </thead>
                     <tbody class="text-gray-600 text-sm font-light">
-                        @forelse ($apiaries as $apiary )
+                        @forelse (auth()->user()->apiaries as $apiary )
                         <tr>
                             <td>{{$apiary->name}}</td>
                             <td>{{$apiary->location}}</td>
-                       
+
                         @endforelse
 
 
