@@ -14,7 +14,16 @@ class ApiaryController extends Controller
      */
     public function index()
     {
-        $apiaries = Apiary::all();
+        $user=auth()->user();
+        $arrayRoles = auth()->user()->roles->pluck('name')->toArray();
+        if (in_array('Admin', $arrayRoles)) {
+            $apiaries = Apiary::all();
+        }else{
+            if (in_array('User', $arrayRoles)){
+                $apiaries = Apiary::where('user_id',$user->id)->get();
+            }
+        }
+
         return view('apiaries.index', [
             'apiaries' => $apiaries
         ]); #Array asociativo
@@ -34,8 +43,10 @@ class ApiaryController extends Controller
      */
     public function store(StoreApiaryRequest $request)
     {
+
         $validated = $request->validated();
         $apiary = Apiary::create($validated);
+        $apiary->user_id = auth()->user()->id;
         $apiary -> save();
 
         return redirect()->route('apiaries.index');
@@ -72,7 +83,7 @@ class ApiaryController extends Controller
         $apiary = Apiary::find($id);
         $apiary->fill($validated);
         $apiary->save();
-        
+
         return redirect()->route('apiaries.index');
     }
 

@@ -9,7 +9,7 @@
         <a href="{{route('apiaries.create')}}" class="font-bold uppercase text-gray-600" flex-shrink-0><span class="material-icons cursor-pointer " title="Agregar">add</span></a></a>
     </div>
     <div class="pt-4">
-        <livewire:apiary-table />
+        <livewire:apiary-table :model="$apiaries"/>
     </div>
 </div>
 

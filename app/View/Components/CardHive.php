@@ -17,6 +17,8 @@ class CardHive extends Component
         public string $humd,
         public string $pres,
         public string $peso
+
+
     )
     {}
 
